@@ -1,10 +1,13 @@
 using API.Config;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.RegisterDependecyInjector();
+builder.Services.AddMediatR(typeof(Program).Assembly);
+
+builder.Services.RegisterDependencyInjector();
 builder.Services.RegisterDatabase();
-builder.Services.RegisterMenssageBus();
+builder.Services.RegisterMessageBus();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
