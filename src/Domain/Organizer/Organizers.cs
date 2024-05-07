@@ -7,9 +7,9 @@ namespace Domain.Organizer;
 
 public sealed class Organizers : Entity, IAggregateRoot
 {
-    public string CorporateReason { get; set; } = string.Empty;
-    public Cnpj Cnpj { get; set; }
-    public string Fantasy { get; set; }
+    public string CorporateReason { get; private set; } = string.Empty;
+    public Cnpj? Cnpj { get; init; }
+    public string Fantasy { get; private set; } = string.Empty;
 
     private Organizers()
     {
