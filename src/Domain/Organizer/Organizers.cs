@@ -15,7 +15,7 @@ public sealed class Organizers : Entity, IAggregateRoot
     {
     }
 
-    public static ErrorOr<Organizers> Create(CreateOrganizerDTO organizerDTO)
+    public static ErrorOr<Organizers> Register(RegisterOrganizerDTO organizerDTO)
     {
         List<Error> errors = [];
 

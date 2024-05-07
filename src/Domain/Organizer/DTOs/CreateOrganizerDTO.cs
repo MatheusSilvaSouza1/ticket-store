@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Organizer.DTOs;
 
-public sealed class CreateOrganizerDTO
+public sealed class RegisterOrganizerDTO
 {
     [Required]
     public string CorporateReason { get; set; } = string.Empty;

@@ -1,18 +1,20 @@
 using Application.Organizer.Commands;
+using Core.Messages;
 using Domain.Organizer;
+using Domain.Organizer.Repositories;
 using ErrorOr;
 using MediatR;
 
 namespace Application.Organizer
 {
-    public class OrganizerHandler : IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>
+    public class OrganizerHandler : CommandHandler, IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>
     {
-        // private readonly IOrganizerRepository _organizerRepository;
+        private readonly IOrganizerRepository _organizerRepository;
 
-        // public OrganizerHandler(IOrganizerRepository organizerRepository)
-        // {
-        //     _organizerRepository = organizerRepository;
-        // }
+        public OrganizerHandler(IOrganizerRepository organizerRepository)
+        {
+            _organizerRepository = organizerRepository;
+        }
 
         public async Task<ErrorOr<Guid>> Handle(RegisterOrganizerCommand request, CancellationToken cancellationToken)
         {
@@ -20,7 +22,7 @@ namespace Application.Organizer
 
             // validar parametros
 
-            var organizer = Organizers.Create(request.OrganizerDTO);
+            var organizer = Organizers.Register(request.OrganizerDTO);
             if (organizer.IsError)
             {
                 return organizer.Errors;

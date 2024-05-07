@@ -6,6 +6,6 @@ public abstract class CommandHandler
 {
     protected static async Task<bool> PersistData(IUnitOfWork uow)
     {
-        return await uow.SaveEntitiesAsync();
+        return await uow.CommitAsync();
     }
 }
