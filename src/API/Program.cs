@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMediatR(typeof(Program).Assembly);
 
 builder.Services.RegisterDependencyInjector();
-builder.Services.RegisterDatabase();
+builder.Services.RegisterDatabase(builder.Configuration);
 builder.Services.RegisterMessageBus();
 
 builder.Services.AddControllers();
