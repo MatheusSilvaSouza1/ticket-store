@@ -1,9 +1,10 @@
+using Core.Messages;
 using Domain.Organizer.DTOs;
 using ErrorOr;
-using MediatR;
 
 namespace Application.Organizer.Commands;
 
-public record RegisterOrganizerCommand(CreateOrganizerDTO OrganizerDTO) : IRequest<ErrorOr<Guid>>
+public class RegisterOrganizerCommand(RegisterOrganizerDTO organizerDTO) : Command<ErrorOr<Guid>>
 {
+    public RegisterOrganizerDTO OrganizerDTO { get; init; } = organizerDTO;
 }

@@ -1,14 +1,16 @@
 using Core.Repository;
+using Domain.Organizer;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra;
 
-public class Context : DbContext, IUnitOfWork
+public class Context(DbContextOptions<Context> options)
+    : DbContext(options), IUnitOfWork
 {
-    public Context(DbContextOptions<Context> options) : base(options) { }
-    
     public Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
     }
+
+    public DbSet<Organizers> Organizers { get; set; }
 }

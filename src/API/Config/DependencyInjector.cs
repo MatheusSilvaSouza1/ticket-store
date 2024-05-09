@@ -1,5 +1,6 @@
 using Application.Organizer;
 using Application.Organizer.Commands;
+using Core.Mediator;
 using ErrorOr;
 using Infra;
 using MediatR;
@@ -12,6 +13,7 @@ public static class DependencyInjector
     public static void RegisterDependencyInjector(this IServiceCollection services)
     {
 
+        services.AddScoped<IMediatorHandler, MediatorHandler>();
         services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
     }
 
