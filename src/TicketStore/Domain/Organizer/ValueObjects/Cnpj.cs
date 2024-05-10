@@ -1,4 +1,3 @@
-using Core.Domain;
 using ErrorOr;
 
 namespace Domain.Organizer.ValueObjects;
