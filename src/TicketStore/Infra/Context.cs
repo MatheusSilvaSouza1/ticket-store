@@ -7,14 +7,17 @@ namespace Infra;
 public class Context
     : DbContext, IUnitOfWork
 {
-    public Context(DbContextOptions<Context> options) : base(options)
+    public Context(DbContextOptions<Context> options)
+        : base(options)
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override async void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("ticket-store-api");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
+
+        await Database.MigrateAsync();
     }
 
     public DbSet<Organizers> Organizers { get; set; }

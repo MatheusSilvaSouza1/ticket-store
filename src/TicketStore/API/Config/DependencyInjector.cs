@@ -1,6 +1,8 @@
+using Application.Event.Commands;
 using Application.Organizer;
 using Application.Organizer.Commands;
 using Core.Mediator;
+using Domain.Event.Repositories;
 using Domain.Organizer.Repositories;
 using ErrorOr;
 using Infra;
@@ -17,8 +19,10 @@ public static class DependencyInjector
 
         services.AddScoped<IMediatorHandler, MediatorHandler>();
         services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
+        services.AddScoped<IRequestHandler<CreateEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
 
         services.AddScoped<IOrganizerRepository, OrganizerRepository>();
+        services.AddScoped<IEventRepository, EventRepository>();
     }
 
     public static void RegisterDatabase(this IServiceCollection services, IConfiguration configuration)

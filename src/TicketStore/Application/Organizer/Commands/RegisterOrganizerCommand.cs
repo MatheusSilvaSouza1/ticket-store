@@ -4,7 +4,12 @@ using ErrorOr;
 
 namespace Application.Organizer.Commands;
 
-public class RegisterOrganizerCommand(RegisterOrganizerDTO organizerDTO) : Command<ErrorOr<Guid>>
+public class RegisterOrganizerCommand : Command<ErrorOr<Guid>>
 {
-    public RegisterOrganizerDTO OrganizerDTO { get; init; } = organizerDTO;
+    public RegisterOrganizerDTO OrganizerDTO { get; init; }
+
+    public RegisterOrganizerCommand(RegisterOrganizerDTO organizerDTO)
+    {
+        OrganizerDTO = organizerDTO;
+    }
 }

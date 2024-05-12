@@ -2,18 +2,17 @@ using Application.Organizer.Commands;
 using Core.Mediator;
 using Domain.Organizer.DTOs;
 using ErrorOr;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class OrganizerController : ControllerBase
+public class OrganizersController : ControllerBase
 {
     private readonly IMediatorHandler _mediator;
 
-    public OrganizerController(IMediatorHandler mediator)
+    public OrganizersController(IMediatorHandler mediator)
     {
         _mediator = mediator;
     }
