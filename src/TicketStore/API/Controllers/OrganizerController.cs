@@ -19,6 +19,9 @@ public class OrganizerController : ControllerBase
     }
 
     [HttpPost]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Post(RegisterOrganizerDTO organizer, CancellationToken cancellationToken)
     {
         var result = await _mediator.SendCommand<RegisterOrganizerCommand, ErrorOr<Guid>>(

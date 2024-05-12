@@ -2,7 +2,6 @@ using Core.Repository;
 
 namespace Domain.Organizer.Repositories;
 
-public interface IOrganizerRepository : IRepository
+public interface IOrganizerRepository : IBaseRepository<Organizers>
 {
-    
 }

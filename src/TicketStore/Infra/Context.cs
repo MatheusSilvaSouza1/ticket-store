@@ -18,8 +18,8 @@ public class Context
 
     public DbSet<Organizers> Organizers { get; set; }
 
-    public Task<bool> CommitAsync(CancellationToken cancellationToken = default)
+    public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        return await base.SaveChangesAsync(cancellationToken) > 0;
     }
 }

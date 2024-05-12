@@ -18,15 +18,15 @@ namespace Application.Organizer
 
         public async Task<ErrorOr<Guid>> Handle(RegisterOrganizerCommand request, CancellationToken cancellationToken)
         {
-            // verificar se o cnpj foi cadastrado
-            
-            // validar parametros
-
             var organizer = Organizers.Register(request.OrganizerDTO);
             if (organizer.IsError)
             {
                 return organizer.Errors;
             }
+
+            _organizerRepository.Create(organizer.Value);
+
+            await _organizerRepository.UnitOfWork.CommitAsync(cancellationToken);
 
             return organizer.Value.Id;
         }

@@ -19,9 +19,8 @@ public class OrganizersMapping : IEntityTypeConfiguration<Organizers>
 
         builder.Property(e => e.Cnpj)
             .IsRequired()
+            .HasMaxLength(14)
             .HasConversion(e => e!.Value, e => Cnpj.Create(e).Value);
-
-        // builder.OwnsOne(e => e.Cnpj);
 
         builder.HasIndex(e => e.Cnpj);
     }

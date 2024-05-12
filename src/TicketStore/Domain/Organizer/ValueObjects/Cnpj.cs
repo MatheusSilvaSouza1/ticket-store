@@ -19,6 +19,7 @@ public record Cnpj
         }
 
         var clean = cnpj
+            .Replace("-", string.Empty)
             .Replace(".", string.Empty)
             .Replace("/", string.Empty);
 

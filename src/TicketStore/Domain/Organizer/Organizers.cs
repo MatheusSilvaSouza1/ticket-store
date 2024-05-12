@@ -8,7 +8,7 @@ namespace Domain.Organizer;
 public sealed class Organizers : Entity, IAggregateRoot
 {
     public string CorporateReason { get; private set; } = string.Empty;
-    public string Cnpj { get; private set; }
+    public Cnpj Cnpj { get; private set; }
     public string Fantasy { get; private set; }
 
     private Organizers()
@@ -19,8 +19,8 @@ public sealed class Organizers : Entity, IAggregateRoot
     {
         List<Error> errors = [];
 
-        // var cnpj = Cnpj.Create(organizerDTO.Cnpj);
-        // errors.AddRange(cnpj.ErrorsOrEmptyList);
+        var cnpj = Cnpj.Create(organizerDTO.Cnpj);
+        errors.AddRange(cnpj.ErrorsOrEmptyList);
 
         if (string.IsNullOrWhiteSpace(organizerDTO.CorporateReason))
         {
@@ -36,7 +36,7 @@ public sealed class Organizers : Entity, IAggregateRoot
         {
             CorporateReason = organizerDTO.CorporateReason,
             Fantasy = organizerDTO.Fantasy,
-            Cnpj = organizerDTO.Cnpj
+            Cnpj = cnpj.Value
         };
     }
 }
