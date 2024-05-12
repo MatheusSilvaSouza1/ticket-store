@@ -1,8 +1,10 @@
 using Application.Organizer;
 using Application.Organizer.Commands;
 using Core.Mediator;
+using Domain.Organizer.Repositories;
 using ErrorOr;
 using Infra;
+using Infra.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ public static class DependencyInjector
 
         services.AddScoped<IMediatorHandler, MediatorHandler>();
         services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
+
+        services.AddScoped<IOrganizerRepository, OrganizerRepository>();
     }
 
     public static void RegisterDatabase(this IServiceCollection services, IConfiguration configuration)

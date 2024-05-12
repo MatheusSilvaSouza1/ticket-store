@@ -4,9 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infra;
 
-public class Context(DbContextOptions<Context> options)
-    : DbContext(options), IUnitOfWork
+public class Context
+    : DbContext, IUnitOfWork
 {
+    public Context(DbContextOptions<Context> options) : base(options)
+    {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
+    }
+
     public DbSet<Organizers> Organizers { get; set; }
 
     public Task<bool> CommitAsync(CancellationToken cancellationToken = default)

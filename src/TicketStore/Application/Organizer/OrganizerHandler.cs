@@ -19,7 +19,7 @@ namespace Application.Organizer
         public async Task<ErrorOr<Guid>> Handle(RegisterOrganizerCommand request, CancellationToken cancellationToken)
         {
             // verificar se o cnpj foi cadastrado
-
+            
             // validar parametros
 
             var organizer = Organizers.Register(request.OrganizerDTO);

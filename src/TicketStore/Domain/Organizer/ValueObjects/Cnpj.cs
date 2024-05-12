@@ -18,6 +18,10 @@ public record Cnpj
             return OrganizerErrors.InvalidCnpj;
         }
 
-        return new Cnpj(cnpj);
+        var clean = cnpj
+            .Replace(".", string.Empty)
+            .Replace("/", string.Empty);
+
+        return new Cnpj(clean);
     }
 }
