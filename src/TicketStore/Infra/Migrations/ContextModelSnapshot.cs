@@ -17,6 +17,7 @@ namespace Infra.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("ticket-store-api")
                 .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -45,7 +46,7 @@ namespace Infra.Migrations
 
                     b.HasIndex("Cnpj");
 
-                    b.ToTable("Organizers");
+                    b.ToTable("Organizers", "ticket-store-api");
                 });
 #pragma warning restore 612, 618
         }

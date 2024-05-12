@@ -25,4 +25,9 @@ public record Cnpj
 
         return new Cnpj(clean);
     }
+
+    public static implicit operator Cnpj(string cnpj)
+    {
+        return Create(cnpj).Value;
+    }
 }

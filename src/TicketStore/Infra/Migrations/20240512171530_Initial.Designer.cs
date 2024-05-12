@@ -12,14 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240512153750_initial")]
-    partial class initial
+    [Migration("20240512171530_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("ticket-store-api")
                 .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -48,7 +49,7 @@ namespace Infra.Migrations
 
                     b.HasIndex("Cnpj");
 
-                    b.ToTable("Organizers");
+                    b.ToTable("Organizers", "ticket-store-api");
                 });
 #pragma warning restore 612, 618
         }

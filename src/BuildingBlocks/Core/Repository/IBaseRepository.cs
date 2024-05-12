@@ -6,7 +6,7 @@ namespace Core.Repository
     public interface IBaseRepository<T> : IRepository<T>
         where T : class, IAggregateRoot
     {
-        Task<bool> ExistsAsync(string id);
+        Task<bool> ExistsAsync(Expression<Func<T, bool>> expression);
         Task<T?> GetAsync(string id);
         Task<T?> GetAsync(Expression<Func<T, bool>> expression);
         Task<IEnumerable<T>> SearchAsync(Expression<Func<T, bool>> expression);

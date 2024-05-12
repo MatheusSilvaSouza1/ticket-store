@@ -6,13 +6,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "ticket-store-api");
+
             migrationBuilder.CreateTable(
                 name: "Organizers",
+                schema: "ticket-store-api",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -27,6 +31,7 @@ namespace Infra.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Organizers_Cnpj",
+                schema: "ticket-store-api",
                 table: "Organizers",
                 column: "Cnpj");
         }
@@ -35,7 +40,8 @@ namespace Infra.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Organizers");
+                name: "Organizers",
+                schema: "ticket-store-api");
         }
     }
 }

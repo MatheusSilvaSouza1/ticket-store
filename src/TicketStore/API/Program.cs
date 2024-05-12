@@ -8,6 +8,7 @@ builder.Services.AddMediatR(typeof(Program).Assembly);
 builder.Services.RegisterDependencyInjector();
 builder.Services.RegisterDatabase(builder.Configuration);
 builder.Services.RegisterMessageBus();
+builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

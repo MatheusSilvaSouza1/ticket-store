@@ -13,6 +13,7 @@ public class Context
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema("ticket-store-api");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
     }
 

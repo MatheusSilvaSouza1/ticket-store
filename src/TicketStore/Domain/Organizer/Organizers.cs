@@ -15,12 +15,17 @@ public sealed class Organizers : Entity, IAggregateRoot
     {
     }
 
-    public static ErrorOr<Organizers> Register(RegisterOrganizerDTO organizerDTO)
+    public static ErrorOr<Organizers> Register(RegisterOrganizerDTO organizerDTO, bool organizerAlreadyExists)
     {
         List<Error> errors = [];
 
         var cnpj = Cnpj.Create(organizerDTO.Cnpj);
         errors.AddRange(cnpj.ErrorsOrEmptyList);
+
+        if (organizerAlreadyExists)
+        {
+            errors.Add(OrganizerErrors.OrganizerAlreadyExists);
+        }
 
         if (string.IsNullOrWhiteSpace(organizerDTO.CorporateReason))
         {

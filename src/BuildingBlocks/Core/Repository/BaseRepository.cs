@@ -48,9 +48,9 @@ namespace Core.Repository
             return await _context.Set<T>().Where(expression).ToListAsync();
         }
 
-        public async Task<bool> ExistsAsync(string id)
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> expression)
         {
-            return (await _context.Set<T>().FindAsync(id)) != null;
+            return await _context.Set<T>().AnyAsync(expression);
         }
 
         public void Create(T entity)

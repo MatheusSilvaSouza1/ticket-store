@@ -2,6 +2,7 @@ using Application.Organizer.Commands;
 using Core.Messages;
 using Domain.Organizer;
 using Domain.Organizer.Repositories;
+using Domain.Organizer.ValueObjects;
 using ErrorOr;
 using MediatR;
 
@@ -18,7 +19,9 @@ namespace Application.Organizer
 
         public async Task<ErrorOr<Guid>> Handle(RegisterOrganizerCommand request, CancellationToken cancellationToken)
         {
-            var organizer = Organizers.Register(request.OrganizerDTO);
+            var exists = await _organizerRepository.ExistsAsync(e => e.Cnpj == request.OrganizerDTO.Cnpj);
+
+            var organizer = Organizers.Register(organizerDTO: request.OrganizerDTO, organizerAlreadyExists: exists);
             if (organizer.IsError)
             {
                 return organizer.Errors;
