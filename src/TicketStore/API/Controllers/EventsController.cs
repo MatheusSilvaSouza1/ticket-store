@@ -33,6 +33,6 @@ public class EventsController : ControllerBase
             return BadRequest(result.Errors);
         }
 
-        return Created(string.Empty, result.Value);
+        return Created(string.Empty, new { Id = result.Value });
     }
 }
