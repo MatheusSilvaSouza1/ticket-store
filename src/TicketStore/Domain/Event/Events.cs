@@ -11,7 +11,19 @@ public class Events : Entity, IAggregateRoot
     public string Description { get; private set; }
     public int NumberOfSeats { get => Sectors.Sum(e => e.NumberOfSeats); }
     public string Image { get; private set; }
-    public bool IsPublished { get; private set; } = false;
+    public bool IsPublished
+    {
+        get
+        {
+            if (PublishAt == null || DateTime.Compare(DateTime.UtcNow.AddHours(-3), PublishAt.GetValueOrDefault()) < 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+    public DateTime? PublishAt { get; set; }
     public DateRange DateRange { get; private set; }
     public List<Sectors> Sectors { get; private set; } = [];
     public Address Address { get; private set; }
@@ -75,5 +87,27 @@ public class Events : Entity, IAggregateRoot
             sectors.Value,
             Address.Create(eventDTO.Address)
         );
+    }
+
+    public ErrorOr<bool> PublishEvent(DateTime publishAt)
+    {
+        List<Error> errors = [];
+
+        if (publishAt >= DateRange.Start)
+        {
+            errors.Add(EventsErrors.EventPublishDateCannotBeAfterTheStart);
+        }
+
+        if (publishAt < DateRange.Start.AddDays(-1))
+        {
+            errors.Add(EventsErrors.EventPublishDateMustBeOneDayBeforeTheStart);
+        }
+
+        if (errors.Count > 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

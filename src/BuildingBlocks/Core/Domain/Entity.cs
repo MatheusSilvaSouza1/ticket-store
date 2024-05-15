@@ -14,6 +14,9 @@ public abstract class Entity
         protected set => _id = value;
     }
 
+    public DateTime CreatedAt { get; protected set; } = DateTime.UtcNow.AddHours(-3);
+    public DateTime? UpdateAt { get; protected set; }
+
     public bool IsTransient()
     {
         return Id == default;

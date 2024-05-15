@@ -54,12 +54,12 @@ public class Sectors : Entity
 
         if (sectorsDTO.NumberOfSeats <= 0)
         {
-            errors.Add(EventsErrors.SectorNumberSeatsGreaterThanZero);
+            errors.Add(EventsErrors.EventSectorNumberSeatsGreaterThanZero);
         }
 
         if (string.IsNullOrWhiteSpace(sectorsDTO.PlaceName))
         {
-            errors.Add(EventsErrors.SectorPlaceNameIsRequired);
+            errors.Add(EventsErrors.EventSectorPlaceNameIsRequired);
         }
 
         if (errors.Count > 0)

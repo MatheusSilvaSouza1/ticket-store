@@ -12,7 +12,7 @@ public record DateRange
     {
         if (dateRange.Start >= dateRange.End)
         {
-            return EventsErrors.InvalidEventDate;
+            return EventsErrors.EventInvalidDate;
         }
 
         return new DateRange()
