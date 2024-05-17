@@ -2,7 +2,7 @@ using ErrorOr;
 
 namespace Domain.Organizer.ValueObjects;
 
-public record Cnpj
+public sealed record Cnpj
 {
     public string Value { get; init; }
 

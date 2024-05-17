@@ -1,6 +1,6 @@
 namespace Domain.Event.DTOs;
 
-public record AddressDTO(
+public sealed record AddressDTO(
     int? Number,
     string Street,
     string District,

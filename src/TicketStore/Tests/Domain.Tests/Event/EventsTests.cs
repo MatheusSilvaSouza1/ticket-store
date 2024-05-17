@@ -16,7 +16,13 @@ public class EventsTests
             string.Empty,
             new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
             [],
-            null
+            new AddressDTO(
+                1,
+                "Test Street",
+                "Test District",
+                "Test City",
+                "Test State",
+                "Test Country")
         );
 
         bool organizerExists = false;
@@ -41,7 +47,13 @@ public class EventsTests
             string.Empty,
             new DateRangeDTO(DateTime.Now.AddDays(1), DateTime.Now),
             [],
-            null
+            new AddressDTO(
+                1,
+                "Test Street",
+                "Test District",
+                "Test City",
+                "Test State",
+                "Test Country")
         );
 
         bool organizerExists = true;
@@ -66,7 +78,13 @@ public class EventsTests
             string.Empty,
             new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
             new List<SectorsDTO> { new SectorsDTO("Sector 1", 0) },
-            null
+            new AddressDTO(
+                1,
+                "Test Street",
+                "Test District",
+                "Test City",
+                "Test State",
+                "Test Country")
         );
 
         bool organizerExists = true;
@@ -90,7 +108,13 @@ public class EventsTests
             string.Empty,
             new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
             new List<SectorsDTO> { new SectorsDTO("", 10) },
-            null
+            new AddressDTO(
+                1,
+                "Test Street",
+                "Test District",
+                "Test City",
+                "Test State",
+                "Test Country")
         );
 
         bool organizerExists = true;

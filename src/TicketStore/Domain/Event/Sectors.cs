@@ -4,7 +4,7 @@ using ErrorOr;
 
 namespace Domain.Event;
 
-public class Sectors : Entity
+public sealed class Sectors : Entity
 {
     public string PlaceName { get; private set; }
     public int NumberOfSeats { get; private set; }

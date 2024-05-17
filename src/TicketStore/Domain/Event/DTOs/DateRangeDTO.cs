@@ -1,6 +1,6 @@
 namespace Domain.Event.DTOs;
 
-public record DateRangeDTO(
+public sealed record DateRangeDTO(
     DateTime Start,
     DateTime End)
 {
