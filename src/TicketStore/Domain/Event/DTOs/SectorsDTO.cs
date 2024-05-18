@@ -1,6 +1,6 @@
 namespace Domain.Event.DTOs;
 
-public record SectorsDTO(
+public sealed record SectorsDTO(
     string PlaceName,
     int NumberOfSeats)
 {

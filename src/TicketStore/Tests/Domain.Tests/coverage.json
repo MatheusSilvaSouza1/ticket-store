@@ -1,0 +1,1368 @@
+{
+  "Core.dll": {
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Repository\\BaseRepository.cs": {
+      "Core.Repository.RepositoryBase`2": {
+        "Core.Repository.IUnitOfWork Core.Repository.RepositoryBase`2::get_UnitOfWork()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::Dispose()": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::Delete(T)": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "34": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::Create(T)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::Update(T)": {
+          "Lines": {
+            "62": 0,
+            "63": 0,
+            "64": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::UpdateRange(System.Collections.Generic.IEnumerable`1<T>)": {
+          "Lines": {
+            "67": 0,
+            "68": 0,
+            "69": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Repository.RepositoryBase`2::Dispose(System.Boolean)": {
+          "Lines": {
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0
+          },
+          "Branches": [
+            {
+              "Line": 78,
+              "Offset": 4,
+              "EndOffset": 6,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 78,
+              "Offset": 4,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Core.Repository.RepositoryBase`2::.ctor(TContext)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<CommitAsync>d__17": {
+        "System.Void Core.Repository.RepositoryBase`2/<CommitAsync>d__17::MoveNext()": {
+          "Lines": {
+            "93": 0,
+            "94": 0,
+            "95": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<DisposeAsync>d__16": {
+        "System.Void Core.Repository.RepositoryBase`2/<DisposeAsync>d__16::MoveNext()": {
+          "Lines": {
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0
+          },
+          "Branches": [
+            {
+              "Line": 86,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 86,
+              "Offset": 23,
+              "EndOffset": 139,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<DisposeAsync>d__4": {
+        "System.Void Core.Repository.RepositoryBase`2/<DisposeAsync>d__4::MoveNext()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<ExistsAsync>d__10": {
+        "System.Void Core.Repository.RepositoryBase`2/<ExistsAsync>d__10::MoveNext()": {
+          "Lines": {
+            "52": 0,
+            "53": 0,
+            "54": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<GetAsync>d__14": {
+        "System.Void Core.Repository.RepositoryBase`2/<GetAsync>d__14::MoveNext()": {
+          "Lines": {
+            "72": 0,
+            "73": 0,
+            "74": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<GetAsync>d__8": {
+        "System.Void Core.Repository.RepositoryBase`2/<GetAsync>d__8::MoveNext()": {
+          "Lines": {
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<SaveChangesAsync>d__7": {
+        "System.Void Core.Repository.RepositoryBase`2/<SaveChangesAsync>d__7::MoveNext()": {
+          "Lines": {
+            "37": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Repository.RepositoryBase`2/<SearchAsync>d__9": {
+        "System.Void Core.Repository.RepositoryBase`2/<SearchAsync>d__9::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Messages\\CommandHandler.cs": {
+      "Core.Messages.CommandHandler/<PersistData>d__0": {
+        "System.Void Core.Messages.CommandHandler/<PersistData>d__0::MoveNext()": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Messages\\Message.cs": {
+      "Core.Messages.Message": {
+        "System.String Core.Messages.Message::get_MessageType()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Core.Messages.Message::get_Timestamp()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Messages.Message::.ctor()": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Mediator\\MediatorHandler.cs": {
+      "Core.Mediator.MediatorHandler": {
+        "System.Threading.Tasks.Task`1<TResult> Core.Mediator.MediatorHandler::SendCommand(T,System.Threading.CancellationToken)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Mediator.MediatorHandler::.ctor(MediatR.IMediator)": {
+          "Lines": {
+            "6": 0,
+            "8": 0
+          },
+          "Branches": []
+        }
+      },
+      "Core.Mediator.MediatorHandler/<PublishMessage>d__2`1": {
+        "System.Void Core.Mediator.MediatorHandler/<PublishMessage>d__2`1::MoveNext()": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Domain\\Entity.cs": {
+      "Core.Domain.Entity": {
+        "System.Guid Core.Domain.Entity::get_Id()": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void Core.Domain.Entity::set_Id(System.Guid)": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Core.Domain.Entity::IsTransient()": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Core.Domain.Entity::Equals(System.Object)": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "39": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "46": 0,
+            "47": 0,
+            "49": 0
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 2,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 10,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 10,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 23,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 38,
+              "EndOffset": 40,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 38,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 66,
+              "EndOffset": 68,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 66,
+              "EndOffset": 73,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 86,
+              "EndOffset": 88,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 86,
+              "EndOffset": 96,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 101,
+              "EndOffset": 103,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 41,
+              "Offset": 101,
+              "EndOffset": 108,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Core.Domain.Entity::op_Equality(Core.Domain.Entity,Core.Domain.Entity)": {
+          "Lines": {
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0
+          },
+          "Branches": [
+            {
+              "Line": 53,
+              "Offset": 10,
+              "EndOffset": 12,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 10,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Core.Domain.Entity::op_Inequality(Core.Domain.Entity,Core.Domain.Entity)": {
+          "Lines": {
+            "64": 0,
+            "65": 0,
+            "66": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Core.Domain.Entity::GetHashCode()": {
+          "Lines": {
+            "68": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\BuildingBlocks\\Core\\Domain\\ValueObject .cs": {
+      "Core.Domain.ValueObject": {
+        "System.Boolean Core.Domain.ValueObject::Equals(Core.Domain.ValueObject)": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "Branches": [
+            {
+              "Line": 9,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 9,
+              "Offset": 2,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean Core.Domain.ValueObject::Equals(System.Object)": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": [
+            {
+              "Line": 14,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 9,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Int32 Core.Domain.ValueObject::GetHashCode()": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Core.Domain.ValueObject::ValuesAreEquals(Core.Domain.ValueObject)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Domain.dll": {
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Organizer\\OrganizerErrors.cs": {
+      "Domain.Organizer.OrganizerErrors": {
+        "System.Void Domain.Organizer.OrganizerErrors::.cctor()": {
+          "Lines": {
+            "7": 1,
+            "8": 1,
+            "9": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Organizer\\Organizers.cs": {
+      "Domain.Organizer.Organizers": {
+        "System.String Domain.Organizer.Organizers::get_CorporateReason()": {
+          "Lines": {
+            "10": 3
+          },
+          "Branches": []
+        },
+        "Domain.Organizer.ValueObjects.Cnpj Domain.Organizer.Organizers::get_Cnpj()": {
+          "Lines": {
+            "11": 2
+          },
+          "Branches": []
+        },
+        "System.String Domain.Organizer.Organizers::get_Fantasy()": {
+          "Lines": {
+            "12": 2
+          },
+          "Branches": []
+        },
+        "ErrorOr.ErrorOr`1<Domain.Organizer.Organizers> Domain.Organizer.Organizers::Register(Domain.Organizer.DTOs.RegisterOrganizerDTO,System.Boolean)": {
+          "Lines": {
+            "19": 4,
+            "20": 4,
+            "22": 4,
+            "23": 4,
+            "25": 4,
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "30": 4,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "35": 4,
+            "36": 3,
+            "37": 3,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 4
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 25,
+              "Offset": 36,
+              "EndOffset": 52,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 30,
+              "Offset": 65,
+              "EndOffset": 67,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 30,
+              "Offset": 65,
+              "EndOffset": 81,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 35,
+              "Offset": 94,
+              "EndOffset": 96,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 3
+            },
+            {
+              "Line": 35,
+              "Offset": 94,
+              "EndOffset": 107,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void Domain.Organizer.Organizers::.ctor()": {
+          "Lines": {
+            "14": 1,
+            "15": 1,
+            "16": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Organizer\\ValueObjects\\Cnpj.cs": {
+      "Domain.Organizer.ValueObjects.Cnpj": {
+        "System.String Domain.Organizer.ValueObjects.Cnpj::get_Value()": {
+          "Lines": {
+            "7": 4
+          },
+          "Branches": []
+        },
+        "ErrorOr.ErrorOr`1<Domain.Organizer.ValueObjects.Cnpj> Domain.Organizer.ValueObjects.Cnpj::Create(System.String)": {
+          "Lines": {
+            "15": 5,
+            "16": 5,
+            "17": 1,
+            "18": 1,
+            "21": 4,
+            "22": 4,
+            "23": 4,
+            "24": 4,
+            "26": 4,
+            "27": 5
+          },
+          "Branches": [
+            {
+              "Line": 16,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 16,
+              "Offset": 16,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            }
+          ]
+        },
+        "Domain.Organizer.ValueObjects.Cnpj Domain.Organizer.ValueObjects.Cnpj::op_Implicit(System.String)": {
+          "Lines": {
+            "30": 1,
+            "31": 1,
+            "32": 1
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Organizer.ValueObjects.Cnpj::.ctor(System.String)": {
+          "Lines": {
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "12": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Organizer\\DTOs\\CreateOrganizerDTO.cs": {
+      "Domain.Organizer.DTOs.RegisterOrganizerDTO": {
+        "System.String Domain.Organizer.DTOs.RegisterOrganizerDTO::get_CorporateReason()": {
+          "Lines": {
+            "8": 14
+          },
+          "Branches": []
+        },
+        "System.String Domain.Organizer.DTOs.RegisterOrganizerDTO::get_Cnpj()": {
+          "Lines": {
+            "10": 12
+          },
+          "Branches": []
+        },
+        "System.String Domain.Organizer.DTOs.RegisterOrganizerDTO::get_Fantasy()": {
+          "Lines": {
+            "11": 10
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\Events.cs": {
+      "Domain.Event.Events": {
+        "System.String Domain.Event.Events::get_Name()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.Events::get_Description()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Event.Events::get_NumberOfSeats()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.Events::get_Image()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Domain.Event.Events::get_IsPublished()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.ValueObjects.DateRange Domain.Event.Events::get_DateRange()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<Domain.Event.Sectors> Domain.Event.Events::get_Sectors()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.ValueObjects.Address Domain.Event.Events::get_Address()": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Guid Domain.Event.Events::get_OrganizerId()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "ErrorOr.ErrorOr`1<Domain.Event.Events> Domain.Event.Events::Create(System.Guid,Domain.Event.DTOs.CreateEventDTO,System.Boolean)": {
+          "Lines": {
+            "43": 0,
+            "44": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0
+          },
+          "Branches": [
+            {
+              "Line": 46,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 46,
+              "Offset": 13,
+              "EndOffset": 29,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 52,
+              "EndOffset": 54,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 52,
+              "EndOffset": 70,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 59,
+              "Offset": 93,
+              "EndOffset": 95,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 59,
+              "Offset": 93,
+              "EndOffset": 111,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 124,
+              "EndOffset": 126,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 124,
+              "EndOffset": 137,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Domain.Event.Events::.ctor()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.Events::.ctor(System.Guid,System.String,System.String,System.String,Domain.Event.ValueObjects.DateRange,System.Collections.Generic.List`1<Domain.Event.Sectors>,Domain.Event.ValueObjects.Address)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\EventsErrors.cs": {
+      "Domain.Event.EventsErrors": {
+        "System.Void Domain.Event.EventsErrors::.cctor()": {
+          "Lines": {
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\Sectors.cs": {
+      "Domain.Event.Sectors": {
+        "System.String Domain.Event.Sectors::get_PlaceName()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Event.Sectors::get_NumberOfSeats()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Guid Domain.Event.Sectors::get_EventId()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.Events Domain.Event.Sectors::get_Event()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "ErrorOr.ErrorOr`1<System.Collections.Generic.List`1<Domain.Event.Sectors>> Domain.Event.Sectors::Create(System.Collections.Generic.List`1<Domain.Event.DTOs.SectorsDTO>)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": [
+            {
+              "Line": 29,
+              "Offset": 95,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 51,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 51,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 29,
+              "Offset": 95,
+              "EndOffset": 97,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 127,
+              "EndOffset": 129,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 127,
+              "EndOffset": 140,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "ErrorOr.ErrorOr`1<Domain.Event.Sectors> Domain.Event.Sectors::Create(Domain.Event.DTOs.SectorsDTO)": {
+          "Lines": {
+            "52": 0,
+            "53": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "70": 0,
+            "71": 0
+          },
+          "Branches": [
+            {
+              "Line": 55,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 21,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 50,
+              "EndOffset": 66,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 77,
+              "EndOffset": 79,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 65,
+              "Offset": 77,
+              "EndOffset": 90,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Domain.Event.Sectors::.ctor()": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.Sectors::.ctor(System.String,System.Int32)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\ValueObjects\\Address.cs": {
+      "Domain.Event.ValueObjects.Address": {
+        "System.Nullable`1<System.Int32> Domain.Event.ValueObjects.Address::get_Number()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.ValueObjects.Address::get_Street()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.ValueObjects.Address::get_District()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.ValueObjects.Address::get_City()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.ValueObjects.Address::get_State()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.ValueObjects.Address::get_Country()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.ValueObjects.Address Domain.Event.ValueObjects.Address::Create(Domain.Event.DTOs.AddressDTO)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.ValueObjects.Address::.ctor(System.Nullable`1<System.Int32>,System.String,System.String,System.String,System.String,System.String)": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\ValueObjects\\DateRange.cs": {
+      "Domain.Event.ValueObjects.DateRange": {
+        "System.DateTime Domain.Event.ValueObjects.DateRange::get_Start()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Event.ValueObjects.DateRange::get_End()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "ErrorOr.ErrorOr`1<Domain.Event.ValueObjects.DateRange> Domain.Event.ValueObjects.DateRange::Create(Domain.Event.DTOs.DateRangeDTO)": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": [
+            {
+              "Line": 13,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 13,
+              "Offset": 20,
+              "EndOffset": 36,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\DTOs\\AddressDTO.cs": {
+      "Domain.Event.DTOs.AddressDTO": {
+        "System.Nullable`1<System.Int32> Domain.Event.DTOs.AddressDTO::get_Number()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.AddressDTO::get_Street()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.AddressDTO::get_District()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.AddressDTO::get_City()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.AddressDTO::get_State()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.AddressDTO::get_Country()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.DTOs.AddressDTO::.ctor(System.Nullable`1<System.Int32>,System.String,System.String,System.String,System.String,System.String)": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\DTOs\\CreateEventDTO.cs": {
+      "Domain.Event.DTOs.CreateEventDTO": {
+        "System.String Domain.Event.DTOs.CreateEventDTO::get_Name()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.CreateEventDTO::get_Description()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Event.DTOs.CreateEventDTO::get_Image()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.DTOs.DateRangeDTO Domain.Event.DTOs.CreateEventDTO::get_DateRange()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<Domain.Event.DTOs.SectorsDTO> Domain.Event.DTOs.CreateEventDTO::get_Sectors()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "Domain.Event.DTOs.AddressDTO Domain.Event.DTOs.CreateEventDTO::get_Address()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.DTOs.CreateEventDTO::.ctor(System.String,System.String,System.String,Domain.Event.DTOs.DateRangeDTO,System.Collections.Generic.List`1<Domain.Event.DTOs.SectorsDTO>,Domain.Event.DTOs.AddressDTO)": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\DTOs\\DateRangeDTO.cs": {
+      "Domain.Event.DTOs.DateRangeDTO": {
+        "System.DateTime Domain.Event.DTOs.DateRangeDTO::get_Start()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Event.DTOs.DateRangeDTO::get_End()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.DTOs.DateRangeDTO::.ctor(System.DateTime,System.DateTime)": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\matheus.silva\\github\\ticket-store\\src\\TicketStore\\Domain\\Event\\DTOs\\SectorsDTO.cs": {
+      "Domain.Event.DTOs.SectorsDTO": {
+        "System.String Domain.Event.DTOs.SectorsDTO::get_PlaceName()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Event.DTOs.SectorsDTO::get_NumberOfSeats()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Void Domain.Event.DTOs.SectorsDTO::.ctor(System.String,System.Int32)": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

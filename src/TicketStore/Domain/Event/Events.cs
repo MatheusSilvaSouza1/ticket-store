@@ -5,7 +5,7 @@ using ErrorOr;
 
 namespace Domain.Event;
 
-public class Events : Entity, IAggregateRoot
+public sealed class Events : Entity, IAggregateRoot
 {
     public string Name { get; private set; }
     public string Description { get; private set; }

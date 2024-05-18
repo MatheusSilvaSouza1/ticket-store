@@ -1,6 +1,6 @@
 namespace Domain.Event.DTOs;
 
-public record CreateEventDTO(
+public sealed record CreateEventDTO(
     string Name,
     string Description,
     string Image,
