@@ -3,6 +3,7 @@ using Application.Organizer;
 using Application.Organizer.Commands;
 using Core.Mediator;
 using Domain.Event.Repositories;
+using Domain.Organizer.DomainEvents;
 using Domain.Organizer.Repositories;
 using ErrorOr;
 using Infra;
@@ -20,6 +21,8 @@ public static class DependencyInjector
         services.AddScoped<IMediatorHandler, MediatorHandler>();
         services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
         services.AddScoped<IRequestHandler<CreateEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
+
+        services.AddScoped<INotificationHandler<OrganizerRegisteredDomainEvent>, OrganizerDomainEventHandler>();
 
         services.AddScoped<IOrganizerRepository, OrganizerRepository>();
         services.AddScoped<IEventRepository, EventRepository>();
