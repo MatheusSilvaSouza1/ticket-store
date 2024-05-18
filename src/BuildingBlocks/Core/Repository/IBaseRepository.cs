@@ -4,7 +4,7 @@ using Core.Domain;
 namespace Core.Repository
 {
     public interface IBaseRepository<T> : IRepository<T>
-        where T : class, IAggregateRoot
+        where T : AggregateRoot
     {
         Task<bool> ExistsAsync(Expression<Func<T, bool>> expression);
         Task<T?> GetAsync(string id);

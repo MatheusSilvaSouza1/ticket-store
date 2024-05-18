@@ -1,3 +1,4 @@
+using Core.Mediator;
 using Core.Repository;
 using Domain.Organizer;
 using Microsoft.EntityFrameworkCore;
@@ -7,23 +8,29 @@ namespace Infra;
 public class Context
     : DbContext, IUnitOfWork
 {
-    public Context(DbContextOptions<Context> options)
+    private readonly IMediatorHandler _mediatorHandler;
+    public Context(DbContextOptions<Context> options, IMediatorHandler mediatorHandler)
         : base(options)
     {
+        _mediatorHandler = mediatorHandler;
     }
 
-    protected override async void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("ticket-store-api");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
-
-        await Database.MigrateAsync();
     }
 
     public DbSet<Organizers> Organizers { get; set; }
 
     public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
     {
-        return await base.SaveChangesAsync(cancellationToken) > 0;
+        var success = await base.SaveChangesAsync() > 0;
+        if (success)
+        {
+            await _mediatorHandler.PublishEvents(this);
+        }
+
+        return success;
     }
 }

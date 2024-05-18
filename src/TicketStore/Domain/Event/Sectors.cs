@@ -17,6 +17,7 @@ public sealed class Sectors : Entity
 
     private Sectors(string placeName, int numberOfSeats)
     {
+        Id = Guid.NewGuid();
         PlaceName = placeName;
         NumberOfSeats = numberOfSeats;
     }

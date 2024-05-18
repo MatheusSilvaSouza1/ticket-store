@@ -5,7 +5,7 @@ using ErrorOr;
 
 namespace Domain.Event;
 
-public sealed class Events : Entity, IAggregateRoot
+public sealed class Events : AggregateRoot
 {
     public string Name { get; private set; }
     public string Description { get; private set; }
@@ -42,6 +42,7 @@ public sealed class Events : Entity, IAggregateRoot
         List<Sectors> sectors,
         Address address)
     {
+        Id = Id = Guid.NewGuid();
         OrganizerId = organizerId;
         Name = name;
         Description = description;

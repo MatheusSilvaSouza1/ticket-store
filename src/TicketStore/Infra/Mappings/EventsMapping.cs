@@ -22,9 +22,6 @@ namespace Infra.Mappings
 
             builder.Property(e => e.OrganizerId);
 
-            builder.Property(e => e.IsPublished)
-                .HasDefaultValue(false);
-
             builder.HasOne<Organizers>()
                 .WithMany()
                 .HasPrincipalKey(organizers => organizers.Id)

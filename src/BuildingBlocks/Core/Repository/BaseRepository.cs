@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Core.Repository
 {
     public abstract class RepositoryBase<T, TContext> : IRepository<T>, IBaseRepository<T>
-        where T : class, IAggregateRoot
+        where T : AggregateRoot
         where TContext : DbContext, IUnitOfWork
     {
         protected readonly TContext _context;

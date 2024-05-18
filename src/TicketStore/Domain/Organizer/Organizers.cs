@@ -1,11 +1,12 @@
 using Core.Domain;
+using Domain.Organizer.DomainEvents;
 using Domain.Organizer.DTOs;
 using Domain.Organizer.ValueObjects;
 using ErrorOr;
 
 namespace Domain.Organizer;
 
-public sealed class Organizers : Entity, IAggregateRoot
+public sealed class Organizers : AggregateRoot
 {
     public string CorporateReason { get; private set; } = string.Empty;
     public Cnpj Cnpj { get; private set; }
@@ -37,11 +38,16 @@ public sealed class Organizers : Entity, IAggregateRoot
             return errors;
         }
 
-        return new Organizers()
+        var organizer = new Organizers()
         {
+            Id = Guid.NewGuid(),
             CorporateReason = organizerDTO.CorporateReason,
             Fantasy = organizerDTO.Fantasy,
             Cnpj = cnpj.Value
         };
+
+        organizer.RaiseDomainEvent(new OrganizerRegisteredDomainEvent(organizer.Id));
+
+        return organizer;
     }
 }
