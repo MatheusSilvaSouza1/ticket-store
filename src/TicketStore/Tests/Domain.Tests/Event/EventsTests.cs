@@ -64,7 +64,7 @@ public class EventsTests
         // Assert
         Assert.True(result.IsError);
         Assert.Single(result.Errors);
-        Assert.Equal(EventsErrors.InvalidEventDate, result.Errors.First());
+        Assert.Equal(EventsErrors.EventInvalidDate, result.Errors.First());
     }
 
     [Fact]
@@ -94,7 +94,7 @@ public class EventsTests
 
         // Assert
         Assert.True(result.IsError);
-        Assert.Contains(result.Errors, error => error.Description == EventsErrors.SectorNumberSeatsGreaterThanZero.Description);
+        Assert.Contains(result.Errors, error => error.Description == EventsErrors.EventSectorNumberSeatsGreaterThanZero.Description);
     }
 
     [Fact]
@@ -124,7 +124,7 @@ public class EventsTests
 
         // Assert
         Assert.True(result.IsError);
-        Assert.Contains(result.Errors, error => error.Description == EventsErrors.SectorPlaceNameIsRequired.Description);
+        Assert.Contains(result.Errors, error => error.Description == EventsErrors.EventSectorPlaceNameIsRequired.Description);
     }
 
     [Fact]
