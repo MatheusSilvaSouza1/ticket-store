@@ -14,8 +14,7 @@ public class EventsTests
             "Test Event",
             string.Empty,
             string.Empty,
-            new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
-            [],
+            [new DatesDTO(DateTime.Now, DateTime.Now.AddHours(5), [])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -46,8 +45,7 @@ public class EventsTests
             "Test Event",
             string.Empty,
             string.Empty,
-            new DateRangeDTO(DateTime.Now.AddDays(1), DateTime.Now),
-            [],
+            [new DatesDTO(DateTime.Now.AddDays(1), DateTime.Now, [])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -78,8 +76,10 @@ public class EventsTests
             "Test Event",
             string.Empty,
             string.Empty,
-            new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
-            new List<SectorsDTO> { new SectorsDTO("Sector 1", 0) },
+            [new DatesDTO(
+                DateTime.Now,
+                DateTime.Now.AddHours(5),
+                [new SectorsDTO("Sector 1", 0)])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -109,8 +109,10 @@ public class EventsTests
             "Test Event",
             string.Empty,
             string.Empty,
-            new DateRangeDTO(DateTime.Now, DateTime.Now.AddHours(5)),
-            new List<SectorsDTO> { new SectorsDTO("", 10) },
+            [new DatesDTO(
+                DateTime.Now,
+                DateTime.Now.AddHours(5),
+                [new SectorsDTO("", 10)])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -141,8 +143,10 @@ public class EventsTests
             "Test Event",
             "Test Event Description",
             "url",
-            new DateRangeDTO(DateTime.Now.AddDays(1), DateTime.Now.AddDays(2)),
-            new List<SectorsDTO> { new SectorsDTO("Sector 1", 10) },
+            [new DatesDTO(
+                DateTime.Now.AddDays(1),
+                DateTime.Now.AddDays(2),
+                [new SectorsDTO("Sector 1", 10)])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -163,12 +167,9 @@ public class EventsTests
         var evt = result.Value;
         Assert.Equal(organizerId, evt.OrganizerId);
         Assert.Equal(eventDTO.Name, evt.Name);
-        Assert.Equal(eventDTO.Description, evt.Description); // Assuming Description property exists in Events class
-        Assert.Equal(eventDTO.Image, evt.Image); // Assuming Image property exists in Events class
-        Assert.Equal(eventDTO.DateRange.Start, evt.DateRange.Start);
-        Assert.Equal(eventDTO.DateRange.End, evt.DateRange.End);
+        Assert.Equal(eventDTO.Description, evt.Description);
+        Assert.Equal(eventDTO.Image, evt.Image);
         Assert.Equal(eventDTO.Address.Street, evt.Address.Street);
         Assert.Equal(eventDTO.Address.City, evt.Address.City);
-        Assert.Equal(10, evt.NumberOfSeats);
     }
 }

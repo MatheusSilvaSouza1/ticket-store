@@ -8,8 +8,9 @@ public sealed class Sectors : Entity
 {
     public string PlaceName { get; private set; }
     public int NumberOfSeats { get; private set; }
-    public Guid EventId { get; private set; }
-    public Events Event { get; private set; }
+
+    public Guid DateId { get; private set; }
+    public Dates Dates { get; private set; }
 
     private Sectors()
     {

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.Mappings
 {
-    public class EventsMapping : IEntityTypeConfiguration<Events>
+    public sealed class EventsMapping : IEntityTypeConfiguration<Events>
     {
         public void Configure(EntityTypeBuilder<Events> builder)
         {
@@ -27,14 +27,12 @@ namespace Infra.Mappings
                 .HasPrincipalKey(organizers => organizers.Id)
                 .HasForeignKey(events => events.OrganizerId);
 
-            builder.HasMany(e => e.Sectors)
+            builder.HasMany(e => e.Dates)
                 .WithOne(e => e.Event)
                 .HasPrincipalKey(e => e.Id)
                 .HasForeignKey(e => e.EventId);
 
             builder.ComplexProperty(e => e.Address);
-
-            builder.ComplexProperty(e => e.DateRange);
 
             builder.HasIndex(e => e.OrganizerId);
             builder.HasIndex(e => e.Name);

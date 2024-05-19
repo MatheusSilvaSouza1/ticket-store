@@ -4,8 +4,7 @@ public sealed record CreateEventDTO(
     string Name,
     string Description,
     string Image,
-    DateRangeDTO DateRange,
-    List<SectorsDTO> Sectors,
+    List<DatesDTO> Dates,
     AddressDTO Address)
 {
 }
