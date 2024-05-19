@@ -13,15 +13,15 @@ public sealed record Cnpj
 
     public static ErrorOr<Cnpj> Create(string cnpj)
     {
-        if (cnpj.Length != 14)
-        {
-            return OrganizerErrors.InvalidCnpj;
-        }
-
         var clean = cnpj
             .Replace("-", string.Empty)
             .Replace(".", string.Empty)
             .Replace("/", string.Empty);
+
+        if (clean.Length != 14)
+        {
+            return OrganizerErrors.InvalidCnpj;
+        }
 
         return new Cnpj(clean);
     }

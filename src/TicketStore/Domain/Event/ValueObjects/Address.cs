@@ -8,7 +8,8 @@ public record Address(
     string District,
     string City,
     string State,
-    string Country)
+    string Country,
+    string? Complement)
 {
     public static Address Create(AddressDTO addressDTO)
     {
@@ -18,6 +19,7 @@ public record Address(
             addressDTO.District,
             addressDTO.City,
             addressDTO.State,
-            addressDTO.Country);
+            addressDTO.Country,
+            addressDTO.Complement);
     }
 }

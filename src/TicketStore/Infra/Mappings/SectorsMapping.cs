@@ -10,6 +10,8 @@ public class SectorsMapping : IEntityTypeConfiguration<Sectors>
     {
         builder.HasKey(e => e.Id);
 
+        builder.Property(e => e.Id);
+
         builder.Property(e => e.PlaceName);
 
         builder.Property(e => e.NumberOfSeats);

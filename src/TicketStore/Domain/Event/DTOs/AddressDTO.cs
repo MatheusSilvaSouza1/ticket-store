@@ -6,6 +6,7 @@ public sealed record AddressDTO(
     string District,
     string City,
     string State,
-    string Country)
+    string Country,
+    string? Complement)
 {
 }

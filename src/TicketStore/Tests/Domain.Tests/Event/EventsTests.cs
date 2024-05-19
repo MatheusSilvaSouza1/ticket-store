@@ -22,7 +22,8 @@ public class EventsTests
                 "Test District",
                 "Test City",
                 "Test State",
-                "Test Country")
+                "Test Country",
+                "Test Complement")
         );
 
         bool organizerExists = false;
@@ -53,7 +54,8 @@ public class EventsTests
                 "Test District",
                 "Test City",
                 "Test State",
-                "Test Country")
+                "Test Country",
+                "Test Complement")
         );
 
         bool organizerExists = true;
@@ -84,7 +86,8 @@ public class EventsTests
                 "Test District",
                 "Test City",
                 "Test State",
-                "Test Country")
+                "Test Country",
+                "Test Complement")
         );
 
         bool organizerExists = true;
@@ -114,7 +117,8 @@ public class EventsTests
                 "Test District",
                 "Test City",
                 "Test State",
-                "Test Country")
+                "Test Country",
+                "Test Complement")
         );
 
         bool organizerExists = true;
@@ -145,7 +149,8 @@ public class EventsTests
                 "Test District",
                 "Test City",
                 "Test State",
-                "Test Country")
+                "Test Country",
+                "Test Complement")
         );
         bool organizerExists = true;
 
