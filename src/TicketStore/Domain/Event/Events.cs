@@ -79,25 +79,28 @@ public sealed class Events : AggregateRoot
         );
     }
 
-    // public ErrorOr<bool> PublishEvent(DateTime publishAt)
-    // {
-    //     List<Error> errors = [];
+    public List<Error> PublishEvent(DateTime publishAt)
+    {
+        List<Error> errors = [];
 
-    //     if (publishAt >= DateRange.Start)
-    //     {
-    //         errors.Add(EventsErrors.EventPublishDateCannotBeAfterTheStart);
-    //     }
+        var firstDate = Dates.OrderBy(e => e.Start).First();
 
-    //     if (publishAt < DateRange.Start.AddDays(-1))
-    //     {
-    //         errors.Add(EventsErrors.EventPublishDateMustBeOneDayBeforeTheStart);
-    //     }
+        if (publishAt >= firstDate.Start)
+        {
+            errors.Add(EventsErrors.EventPublishDateCannotBeAfterTheStart);
+        }
 
-    //     if (errors.Count > 0)
-    //     {
-    //         return false;
-    //     }
+        if (firstDate.Start.AddDays(-1) < publishAt)
+        {
+            errors.Add(EventsErrors.EventPublishDateMustBeOneDayBeforeTheStart);
+        }
 
-    //     return true;
-    // }
+        if (errors.Count > 0)
+        {
+            return errors;
+        }
+
+        PublishAt = publishAt;
+        return errors;
+    }
 }

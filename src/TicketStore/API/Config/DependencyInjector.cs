@@ -21,6 +21,7 @@ public static class DependencyInjector
         services.AddScoped<IMediatorHandler, MediatorHandler>();
         services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
         services.AddScoped<IRequestHandler<CreateEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
+        services.AddScoped<IRequestHandler<PublishEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
 
         services.AddScoped<INotificationHandler<OrganizerRegisteredDomainEvent>, OrganizerDomainEventHandler>();
 

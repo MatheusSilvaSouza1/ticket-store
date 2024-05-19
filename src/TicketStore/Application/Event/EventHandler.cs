@@ -8,20 +8,27 @@ using MediatR;
 
 namespace Application.Event;
 
-public class EventHandler : CommandHandler, IRequestHandler<CreateEventCommand, ErrorOr<Guid>>
+public class EventHandler : CommandHandler,
+    IRequestHandler<CreateEventCommand, ErrorOr<Guid>>,
+    IRequestHandler<PublishEventCommand, ErrorOr<Guid>>
 {
     private readonly IEventRepository _eventRepository;
     private readonly IOrganizerRepository _organizerRepository;
 
-    public EventHandler(IEventRepository eventRepository, IOrganizerRepository organizerRepository)
+    public EventHandler(
+        IEventRepository eventRepository,
+        IOrganizerRepository organizerRepository)
     {
         _eventRepository = eventRepository;
         _organizerRepository = organizerRepository;
     }
 
-    public async Task<ErrorOr<Guid>> Handle(CreateEventCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Guid>> Handle(
+        CreateEventCommand request,
+        CancellationToken cancellationToken)
     {
-        var organizerExists = await _organizerRepository.ExistsAsync(e => e.Id == request.OrganizerId);
+        var organizerExists = await _organizerRepository
+            .ExistsAsync(e => e.Id == request.OrganizerId);
 
         var events = Events.Create(request.OrganizerId, request.EventDTO, organizerExists);
 
@@ -35,5 +42,29 @@ public class EventHandler : CommandHandler, IRequestHandler<CreateEventCommand, 
         await _eventRepository.UnitOfWork.CommitAsync();
 
         return events.Value.Id;
+    }
+
+    public async Task<ErrorOr<Guid>> Handle(
+        PublishEventCommand request,
+        CancellationToken cancellationToken)
+    {
+        var eventDomain = await _eventRepository.FindEvent(
+            request.OrganizerId,
+            request.EventId);
+
+        if (eventDomain is null)
+        {
+            return EventsErrors.EventDoesNotExist;
+        }
+
+        var result = eventDomain.PublishEvent(request.PublishAt);
+
+        if (result.Count > 0)
+        {
+            return result;
+        }
+
+        await _eventRepository.UnitOfWork.CommitAsync(cancellationToken);
+        return ErrorOrFactory.From(eventDomain.Id);
     }
 }

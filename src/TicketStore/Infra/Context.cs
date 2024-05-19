@@ -1,5 +1,6 @@
 using Core.Mediator;
 using Core.Repository;
+using Domain.Event;
 using Domain.Organizer;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,10 +23,11 @@ public class Context
     }
 
     public DbSet<Organizers> Organizers { get; set; }
+    public DbSet<Events> Events { get; set; }
 
     public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
     {
-        var success = await base.SaveChangesAsync() > 0;
+        var success = await SaveChangesAsync(cancellationToken) > 0;
         if (success)
         {
             await _mediatorHandler.PublishEvents(this);

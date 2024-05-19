@@ -1,15 +1,13 @@
 using Application.Event.Commands;
-using Application.Organizer.Commands;
 using Core.Mediator;
 using Domain.Event.DTOs;
 using ErrorOr;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("{organizerId}/[controller]")]
 public class EventsController : ControllerBase
 {
     private readonly IMediatorHandler _mediator;
@@ -19,7 +17,7 @@ public class EventsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("{organizerId}")]
+    [HttpPost]
     [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -34,5 +32,25 @@ public class EventsController : ControllerBase
         }
 
         return Created(string.Empty, new { Id = result.Value });
+    }
+
+    [HttpPost("{eventId}/publish")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> PostPublish(
+        Guid organizerId,
+        Guid eventId, [FromBody] PublishEventDTO publishEvent,
+        CancellationToken cancellationToken)
+    {
+        var result = await _mediator.SendCommand<PublishEventCommand, ErrorOr<Guid>>(
+            new PublishEventCommand(organizerId, eventId, publishEvent.PublishAt), cancellationToken);
+
+        if (result.IsError)
+        {
+            return BadRequest(result.Errors);
+        }
+
+        return Ok();
     }
 }
