@@ -8,7 +8,7 @@ public class MediatorHandler(IMediator mediator) : IMediatorHandler
     private readonly IMediator _mediator = mediator;
 
     public async Task PublishMessage<T>(T message)
-        where T : Event
+        where T : Message
     {
         await _mediator.Publish(message);
     }

@@ -1,4 +1,5 @@
 using Core.Domain;
+using Domain.Event.DomainEvents;
 using Domain.Event.DTOs;
 using Domain.Event.ValueObjects;
 using ErrorOr;
@@ -69,7 +70,7 @@ public sealed class Events : AggregateRoot
             return errors;
         }
 
-        return new Events(
+        var ev = new Events(
             organizerId,
             eventDTO.Name,
             eventDTO.Description,
@@ -77,6 +78,10 @@ public sealed class Events : AggregateRoot
             dates.Value,
             Address.Create(eventDTO.Address)
         );
+
+        ev.RaiseDomainEvent(new EventCreatedDomainEvent(ev.Id));
+
+        return ev;
     }
 
     public List<Error> PublishEvent(DateTime publishAt)
@@ -101,6 +106,9 @@ public sealed class Events : AggregateRoot
         }
 
         PublishAt = publishAt;
+
+        RaiseDomainEvent(new EventPublishedDomainEvent(Id, PublishAt.GetValueOrDefault()));
+
         return errors;
     }
 }

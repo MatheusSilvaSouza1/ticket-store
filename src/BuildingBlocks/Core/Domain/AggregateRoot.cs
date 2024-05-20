@@ -4,10 +4,10 @@ namespace Core.Domain;
 
 public abstract class AggregateRoot : Entity
 {
-    public IReadOnlyCollection<Event> DomainEvents => _domainEvents.AsReadOnly();
-    private List<Event> _domainEvents = [];
+    public IReadOnlyCollection<Message> DomainEvents => _domainEvents.AsReadOnly();
+    private List<Message> _domainEvents = [];
 
-    protected void RaiseDomainEvent(Event domainEvent)
+    protected void RaiseDomainEvent(Message domainEvent)
     {
         _domainEvents.Add(domainEvent);
     }

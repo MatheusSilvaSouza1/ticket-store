@@ -1,6 +1,10 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using MediatR;
+
 namespace Core.Messages;
 
-public abstract class Message
+[NotMapped]
+public abstract class Message : INotification
 {
     public string MessageType { get; init; }
     public DateTime Timestamp { get; init; }
