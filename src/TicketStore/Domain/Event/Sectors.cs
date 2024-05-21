@@ -71,4 +71,9 @@ public sealed class Sectors : Entity
 
         return new Sectors(sectorsDTO.PlaceName, sectorsDTO.NumberOfSeats);
     }
+
+    public SectorsDTO ToSectorsDTO()
+    {
+        return new SectorsDTO(PlaceName, NumberOfSeats);
+    }
 }

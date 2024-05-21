@@ -22,4 +22,17 @@ public record Address(
             addressDTO.Country,
             addressDTO.Complement);
     }
+
+    public AddressDTO ToAddressDTO()
+    {
+        return new AddressDTO(
+            Number,
+            Street,
+            District,
+            City,
+            State,
+            Country,
+            Complement
+        );
+    }
 }

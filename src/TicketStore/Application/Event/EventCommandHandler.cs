@@ -8,14 +8,14 @@ using MediatR;
 
 namespace Application.Event;
 
-public class EventHandler : CommandHandler,
+public class EventCommandHandler : CommandHandler,
     IRequestHandler<CreateEventCommand, ErrorOr<Guid>>,
     IRequestHandler<PublishEventCommand, ErrorOr<Guid>>
 {
     private readonly IEventRepository _eventRepository;
     private readonly IOrganizerRepository _organizerRepository;
 
-    public EventHandler(
+    public EventCommandHandler(
         IEventRepository eventRepository,
         IOrganizerRepository organizerRepository)
     {
@@ -50,7 +50,8 @@ public class EventHandler : CommandHandler,
     {
         var eventDomain = await _eventRepository.FindEvent(
             request.OrganizerId,
-            request.EventId);
+            request.EventId,
+            cancellationToken);
 
         if (eventDomain is null)
         {

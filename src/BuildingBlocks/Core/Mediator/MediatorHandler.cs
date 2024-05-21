@@ -14,8 +14,13 @@ public class MediatorHandler(IMediator mediator) : IMediatorHandler
     }
 
     public Task<TResult> SendCommand<T, TResult>(T command, CancellationToken cancellationToken = default)
-        where T : Command<TResult>
+        where T : ICommand<TResult>
     {
         return _mediator.Send(command);
+    }
+
+    public Task<TResult> SendQuery<T, TResult>(T query, CancellationToken cancellationToken = default) where T : IQuery<TResult>
+    {
+        return _mediator.Send(query);
     }
 }

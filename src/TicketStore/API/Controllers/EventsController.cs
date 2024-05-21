@@ -1,4 +1,5 @@
 using Application.Event.Commands;
+using Application.Event.Queries;
 using Core.Mediator;
 using Domain.Event.DTOs;
 using ErrorOr;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 
 [ApiController]
-[Route("{organizerId}/[controller]")]
+[Route("[controller]")]
 public class EventsController : ControllerBase
 {
     private readonly IMediatorHandler _mediator;
@@ -17,7 +18,7 @@ public class EventsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("/{organizerId}/[controller]")]
     [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -34,7 +35,7 @@ public class EventsController : ControllerBase
         return Created(string.Empty, new { Id = result.Value });
     }
 
-    [HttpPost("{eventId}/publish")]
+    [HttpPost("/{organizerId}/[controller]/{eventId}/publish")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -52,5 +53,22 @@ public class EventsController : ControllerBase
         }
 
         return Ok();
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(List<EventsResponseDTO>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> Get(
+        CancellationToken cancellationToken)
+    {
+        var result = await _mediator.SendQuery<GetEventsQuery, List<EventsResponseDTO>>(new GetEventsQuery(), cancellationToken);
+
+        if (result.Count > 0)
+        {
+            return Ok(result);
+        }
+
+        return NoContent();
     }
 }

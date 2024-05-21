@@ -71,4 +71,13 @@ public sealed class Dates : Entity
             Sectors = sectors.Value
         };
     }
+
+    public DatesDTO ToDatesDTO()
+    {
+        return new DatesDTO(
+            Start,
+            End,
+            Sectors.Select(e => e.ToSectorsDTO()).ToList()
+        );
+    }
 }

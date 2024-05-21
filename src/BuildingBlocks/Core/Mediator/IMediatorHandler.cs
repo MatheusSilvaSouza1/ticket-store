@@ -8,5 +8,8 @@ public interface IMediatorHandler
         where T : Message;
 
     Task<TResult> SendCommand<T, TResult>(T command, CancellationToken cancellationToken = default)
-        where T : Command<TResult>;
+        where T : ICommand<TResult>;
+
+    Task<TResult> SendQuery<T, TResult>(T query, CancellationToken cancellationToken = default)
+        where T : IQuery<TResult>;
 }

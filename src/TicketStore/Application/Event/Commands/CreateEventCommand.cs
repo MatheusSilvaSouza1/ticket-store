@@ -4,7 +4,7 @@ using ErrorOr;
 
 namespace Application.Event.Commands;
 
-public sealed class CreateEventCommand : Command<ErrorOr<Guid>>
+public sealed class CreateEventCommand : ICommand<ErrorOr<Guid>>
 {
     public CreateEventCommand(Guid organizerId, CreateEventDTO eventDTO)
     {

@@ -1,7 +1,10 @@
+using Application.Event;
 using Application.Event.Commands;
+using Application.Event.Queries;
 using Application.Organizer;
 using Application.Organizer.Commands;
 using Core.Mediator;
+using Domain.Event.DTOs;
 using Domain.Event.Repositories;
 using Domain.Organizer.DomainEvents;
 using Domain.Organizer.Repositories;
@@ -19,11 +22,13 @@ public static class DependencyInjector
     {
 
         services.AddScoped<IMediatorHandler, MediatorHandler>();
-        services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerHandler>();
-        services.AddScoped<IRequestHandler<CreateEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
-        services.AddScoped<IRequestHandler<PublishEventCommand, ErrorOr<Guid>>, Application.Event.EventHandler>();
+        services.AddScoped<IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>, OrganizerCommandHandler>();
+        services.AddScoped<IRequestHandler<CreateEventCommand, ErrorOr<Guid>>, EventCommandHandler>();
+        services.AddScoped<IRequestHandler<PublishEventCommand, ErrorOr<Guid>>, EventCommandHandler>();
 
         services.AddScoped<INotificationHandler<OrganizerRegisteredDomainEvent>, OrganizerDomainEventHandler>();
+
+        services.AddScoped<IRequestHandler<GetEventsQuery, List<EventsResponseDTO>>, EventQueryHandler>();
 
         services.AddScoped<IOrganizerRepository, OrganizerRepository>();
         services.AddScoped<IEventRepository, EventRepository>();

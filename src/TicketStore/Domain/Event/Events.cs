@@ -11,6 +11,11 @@ public sealed class Events : AggregateRoot
     public string Name { get; private set; }
     public string Description { get; private set; }
     public string Image { get; private set; }
+    public DateTime? PublishAt { get; set; }
+    public List<Dates> Dates { get; private set; }
+    public Address Address { get; private set; }
+    public Guid OrganizerId { get; private set; }
+
     public bool IsPublished
     {
         get
@@ -23,10 +28,6 @@ public sealed class Events : AggregateRoot
             return true;
         }
     }
-    public DateTime? PublishAt { get; set; }
-    public List<Dates> Dates { get; private set; }
-    public Address Address { get; private set; }
-    public Guid OrganizerId { get; private set; }
 
     private Events()
     {
@@ -110,5 +111,24 @@ public sealed class Events : AggregateRoot
         RaiseDomainEvent(new EventPublishedDomainEvent(Id, PublishAt.GetValueOrDefault()));
 
         return errors;
+    }
+
+    public EventsResponseDTO ToEventsResponseDTO()
+    {
+        var dates = Dates
+            .Select(d => d.ToDatesDTO())
+            .ToList();
+
+        var address = Address.ToAddressDTO();
+
+        return new EventsResponseDTO(
+            Id,
+            Name,
+            Description,
+            Image,
+            IsPublished,
+            dates,
+            address
+        );
     }
 }

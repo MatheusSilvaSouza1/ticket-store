@@ -3,7 +3,7 @@ using ErrorOr;
 
 namespace Application.Event.Commands;
 
-public sealed class PublishEventCommand : Command<ErrorOr<Guid>>
+public sealed class PublishEventCommand : ICommand<ErrorOr<Guid>>
 {
     public PublishEventCommand(Guid organizerId, Guid eventId, DateTime publishAt)
     {

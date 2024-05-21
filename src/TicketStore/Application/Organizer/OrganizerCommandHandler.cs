@@ -2,17 +2,16 @@ using Application.Organizer.Commands;
 using Core.Messages;
 using Domain.Organizer;
 using Domain.Organizer.Repositories;
-using Domain.Organizer.ValueObjects;
 using ErrorOr;
 using MediatR;
 
 namespace Application.Organizer
 {
-    public class OrganizerHandler : CommandHandler, IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>
+    public class OrganizerCommandHandler : CommandHandler, IRequestHandler<RegisterOrganizerCommand, ErrorOr<Guid>>
     {
         private readonly IOrganizerRepository _organizerRepository;
 
-        public OrganizerHandler(IOrganizerRepository organizerRepository)
+        public OrganizerCommandHandler(IOrganizerRepository organizerRepository)
         {
             _organizerRepository = organizerRepository;
         }
