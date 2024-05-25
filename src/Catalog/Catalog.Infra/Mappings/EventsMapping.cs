@@ -1,5 +1,4 @@
 using Domain.Event;
-using Domain.Organizer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -21,11 +20,6 @@ namespace Infra.Mappings
             builder.Property(e => e.Image);
 
             builder.Property(e => e.OrganizerId);
-
-            builder.HasOne<Organizers>()
-                .WithMany()
-                .HasPrincipalKey(organizers => organizers.Id)
-                .HasForeignKey(events => events.OrganizerId);
 
             builder.HasMany(e => e.Dates)
                 .WithOne(e => e.Event)

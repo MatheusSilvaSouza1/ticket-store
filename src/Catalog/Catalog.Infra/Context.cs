@@ -1,7 +1,6 @@
 using Core.Mediator;
 using Core.Repository;
 using Domain.Event;
-using Domain.Organizer;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra;
@@ -18,11 +17,10 @@ public class Context
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("ticket-store-api");
+        modelBuilder.HasDefaultSchema("catalog-api");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
     }
 
-    public DbSet<Organizers> Organizers { get; set; }
     public DbSet<Events> Events { get; set; }
 
     public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
