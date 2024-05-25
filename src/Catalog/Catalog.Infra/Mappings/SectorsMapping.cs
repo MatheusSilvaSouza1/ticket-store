@@ -12,7 +12,8 @@ public class SectorsMapping : IEntityTypeConfiguration<Sectors>
 
         builder.Property(e => e.Id);
 
-        builder.Property(e => e.PlaceName);
+        builder.Property(e => e.PlaceName)
+            .HasMaxLength(1000);
 
         builder.Property(e => e.NumberOfSeats);
     }

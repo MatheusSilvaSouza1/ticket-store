@@ -13,20 +13,38 @@ namespace Infra.Mappings
             builder.Property(e => e.Id);
 
             builder.Property(e => e.Name)
-                .HasMaxLength(1000);
+                .HasMaxLength(1000)
+                .IsRequired();
 
-            builder.Property(e => e.Description);
+            builder.Property(e => e.Description)
+                .HasMaxLength(4000);
 
-            builder.Property(e => e.Image);
+            builder.Property(e => e.Image)
+                .HasMaxLength(4000);
 
-            builder.Property(e => e.OrganizerId);
+            builder.Property(e => e.OrganizerId)
+                .IsRequired();
 
             builder.HasMany(e => e.Dates)
                 .WithOne(e => e.Event)
                 .HasPrincipalKey(e => e.Id)
                 .HasForeignKey(e => e.EventId);
 
-            builder.ComplexProperty(e => e.Address);
+            builder.ComplexProperty(e => e.Address, addressBuilder =>
+            {
+                addressBuilder.Property(e => e.City)
+                    .HasMaxLength(1000);
+                addressBuilder.Property(e => e.Complement)
+                    .HasMaxLength(1000);
+                addressBuilder.Property(e => e.Country)
+                    .HasMaxLength(1000);
+                addressBuilder.Property(e => e.District)
+                    .HasMaxLength(1000);
+                addressBuilder.Property(e => e.State)
+                    .HasMaxLength(1000);
+                addressBuilder.Property(e => e.Street)
+                    .HasMaxLength(2000);
+            });
 
             builder.HasIndex(e => e.OrganizerId);
             builder.HasIndex(e => e.Name);

@@ -13,7 +13,8 @@ public sealed class DatesMapping : IEntityTypeConfiguration<Dates>
 
         builder.Property(e => e.Id);
 
-        builder.Property(e => e.Start);
+        builder.Property(e => e.Start)
+            .IsRequired();
 
         builder.Property(e => e.End);
 
