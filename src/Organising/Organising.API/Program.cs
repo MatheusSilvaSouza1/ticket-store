@@ -1,11 +1,19 @@
+using API.Config;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddMediatR(typeof(Program).Assembly);
+
+builder.Services.RegisterDependencyInjector();
+builder.Services.RegisterDatabase(builder.Configuration);
+builder.Services.RegisterMessageBus();
+builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 var app = builder.Build();
 
