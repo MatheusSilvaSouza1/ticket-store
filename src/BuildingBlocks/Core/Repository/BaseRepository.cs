@@ -17,25 +17,9 @@ namespace Core.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async ValueTask DisposeAsync()
-        {
-            await DisposeAsync(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-        }
-
         public virtual void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
-        }
-
-        public virtual async Task<int> SaveChangesAsync()
-        {
-            return await _context.SaveChangesAsync();
         }
 
         public async Task<T?> GetAsync(string id)
@@ -71,27 +55,6 @@ namespace Core.Repository
         public async Task<T?> GetAsync(Expression<Func<T, bool>> expression)
         {
             return await _context.Set<T>().FirstOrDefaultAsync(expression);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _context.Dispose();
-            }
-        }
-
-        protected async virtual ValueTask DisposeAsync(bool disposing)
-        {
-            if (disposing)
-            {
-                await _context.DisposeAsync();
-            }
-        }
-
-        public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
-        {
-            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
     }
 }

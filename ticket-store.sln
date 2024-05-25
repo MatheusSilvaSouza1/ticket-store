@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\BuildingBlocks\Core\Core.csproj", "{BB35CEB8-A11F-42EE-A36A-F3590F027603}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TicketStore", "TicketStore", "{516AC2D0-4154-4039-AF85-66738784C9E9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{516AC2D0-4154-4039-AF85-66738784C9E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "src\TicketStore\API\API.csproj", "{D9856CC7-6C1E-459F-9987-54BDE91BD811}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "src\Catalog\API\API.csproj", "{D9856CC7-6C1E-459F-9987-54BDE91BD811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\TicketStore\Application\Application.csproj", "{70CF2544-423C-45BD-ABDD-BDAC4DD9640B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Catalog\Application\Application.csproj", "{70CF2544-423C-45BD-ABDD-BDAC4DD9640B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\TicketStore\Domain\Domain.csproj", "{378264D9-40A5-47B1-A96E-27C149468006}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Catalog\Domain\Domain.csproj", "{378264D9-40A5-47B1-A96E-27C149468006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "src\TicketStore\Infra\Infra.csproj", "{40983DFA-3E66-44A9-9A55-4AEDAED2BEFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "src\Catalog\Infra\Infra.csproj", "{40983DFA-3E66-44A9-9A55-4AEDAED2BEFE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{287EAA5D-39D2-4D60-85B9-B69DE87889AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "src\TicketStore\Tests\Domain.Tests\Domain.Tests.csproj", "{90742BD0-CCCA-4232-96F4-F1F21C5CAD21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "src\Catalog\Tests\Domain.Tests\Domain.Tests.csproj", "{90742BD0-CCCA-4232-96F4-F1F21C5CAD21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
