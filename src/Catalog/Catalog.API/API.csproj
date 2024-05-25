@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Catalog.Application\Application.csproj" />
     <ProjectReference Include="..\Catalog.Domain\Domain.csproj" />
     <ProjectReference Include="..\Catalog.Infra\Infra.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\MessageBus\MessageBus.csproj" />
   </ItemGroup>
 
 </Project>

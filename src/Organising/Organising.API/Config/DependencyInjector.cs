@@ -8,6 +8,7 @@ using Infra;
 using Infra.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MessageBus;
 
 namespace API.Config;
 
@@ -33,8 +34,8 @@ public static class DependencyInjector
             });
     }
 
-    public static void RegisterMessageBus(this IServiceCollection services)
+    public static void RegisterMessageBus(this IServiceCollection services, IConfiguration configuration)
     {
-
+        services.AddMessageBus(configuration);
     }
 }

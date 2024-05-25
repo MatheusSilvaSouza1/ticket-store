@@ -46,7 +46,10 @@ public sealed class Organizers : AggregateRoot
             Cnpj = cnpj.Value
         };
 
-        organizer.RaiseDomainEvent(new OrganizerRegisteredDomainEvent(organizer.Id));
+        organizer.RaiseDomainEvent(
+            new OrganizerRegisteredDomainEvent(
+                organizer.Id,
+                organizer.Fantasy ?? organizerDTO.CorporateReason));
 
         return organizer;
     }
