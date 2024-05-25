@@ -1,0 +1,63 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      POSTGRES_DB: ticket-store
+      POSTGRES_USER: ticket-store
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  organising_api:
+    image: organising_api
+    build:
+      context: .
+      dockerfile: ./Organising.Dockerfile
+    ports:
+      - 5286:5286
+    depends_on:
+      - rabbitmq
+      - db
+  catalog_api:
+    image: catalog_api
+    build:
+      context: .
+      dockerfile: ./Catalog.Dockerfile
+    ports:
+      - 7139:7139
+    depends_on:
+      - rabbitmq
+      - db
+    command: >
+      /bin/sh -c "
+      while ! ping -c 1 db; do
+        echo waiting for db;
+        sleep 1;
+      done;
+      while ! ping -c 1 rabbitmq; do
+        echo waiting for rabbitmq;
+        sleep 1;
+      done;
+      my_app_command_to_start_application"
+    
+
+volumes:
+  db-data:
