@@ -10,6 +10,7 @@ using Infra.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MessageBus;
+using Catalog.Application.Organizer;
 
 namespace API.Config;
 
@@ -38,6 +39,9 @@ public static class DependencyInjector
 
     public static void RegisterMessageBus(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMessageBus(configuration);
+        services.AddMessageBus(
+            configuration,
+            consumers: [
+                typeof(OrganizerConsumer)]);
     }
 }

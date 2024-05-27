@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Catalog",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Catalog/Catalog.API/bin/Debug/net8.0/API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Catalog/Catalog.API",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ConnectionStrings:DefaultConnection": "Host=localhost; Database=ticket-store; Username=ticket-store; Password=postgres",
+                "MessageHost:Host": "amqp://localhost:5672",
+                "MessageHost:User": "guest",
+                "MessageHost:Pass": "guest"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Organising",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Organising/Organising.API/bin/Debug/net8.0/API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Organising/Organising.API",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ConnectionStrings:DefaultConnection": "Host=localhost; Database=ticket-store; Username=ticket-store; Password=postgres",
+                "MessageHost:Host": "amqp://localhost:5672",
+                "MessageHost:User": "guest",
+                "MessageHost:Pass": "guest"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+    ],
+    "compounds": [
+        {
+            "name": "All",
+            "configurations": [
+                "Catalog",
+                "Organising"
+            ],
+            "stopAll": true
+        }
+    ]
+}

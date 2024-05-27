@@ -36,6 +36,8 @@ public static class DependencyInjector
 
     public static void RegisterMessageBus(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMessageBus(configuration);
+        services.AddMessageBus(
+            configuration,
+            consumers: []);
     }
 }

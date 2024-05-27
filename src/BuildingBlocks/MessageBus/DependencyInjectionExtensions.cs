@@ -1,3 +1,4 @@
+using System.Reflection;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,11 +7,19 @@ namespace MessageBus;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddMessageBus(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddMessageBus(
+        this IServiceCollection services,
+        IConfiguration configuration,
+        List<Type> consumers)
     {
         services.AddMassTransit(builder =>
         {
             builder.SetKebabCaseEndpointNameFormatter();
+
+            foreach (var consumer in consumers)
+            {
+                builder.AddConsumer(consumer);
+            }
 
             builder.UsingRabbitMq((context, config) =>
                 {
