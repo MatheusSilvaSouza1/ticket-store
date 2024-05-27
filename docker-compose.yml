@@ -14,6 +14,7 @@ services:
       - 5432:5432
     volumes:
       - db-data:/var/lib/postgresql/data
+
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
@@ -26,6 +27,7 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+    
   organising_api:
     image: organising_api
     build:
@@ -36,6 +38,18 @@ services:
     depends_on:
       - rabbitmq
       - db
+    command: >
+      /bin/sh -c "
+      while ! ping -c 1 db; do
+        echo waiting for db;
+        sleep 1;
+      done;
+      while ! ping -c 1 rabbitmq; do
+        echo waiting for rabbitmq;
+        sleep 1;
+      done;
+      my_app_command_to_start_application"
+
   catalog_api:
     image: catalog_api
     build:
