@@ -8,8 +8,9 @@ Onde posso demonstrar todo conhecimento adquirido ao longo da minha carreira
 
 ## Arquitetura
 - Microsserviços
-- Arquitetura orientada a eventos
 ![alt text](docs/arquitetura.png)
+- Arquitetura orientada a eventos
+![alt text](docs/event-storm.png)
 
 ## Padrões de projeto
 - Domain-Driven Design (DDD)
@@ -19,7 +20,6 @@ Onde posso demonstrar todo conhecimento adquirido ao longo da minha carreira
 ## Events storm
 Para a concepção do projeto, foi realizado o event storm para descobrir os eventos para
 [ver mais.](https://miro.com/welcomeonboard/ZDlOVHlYTzRrMFN1aVppMkFzN0l0bEVTRk1rZ0xhaG1FcENsNDhjU29KNWpZdHhLNzVRMkpUZmVxU2FoeDJkYXwzNDU4NzY0NTg0NzkwMTQ1MTQzfDI=?share_link_id=131185290624)
-![alt text](docs/event-storm.png)
 
 ## Como executar
 O projeto utiliza Docker e Docker Compose. Certifique-se de ter o Docker instalado em sua máquina. Na raiz do projeto, abra o terminal e execute:

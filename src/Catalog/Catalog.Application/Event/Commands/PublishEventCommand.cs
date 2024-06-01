@@ -1,5 +1,4 @@
 using Core.Messages;
-using ErrorOr;
 
 namespace Application.Event.Commands;
 

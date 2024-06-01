@@ -1,7 +1,6 @@
 using Application.Event.Queries;
 using Domain.Event.DTOs;
 using Domain.Event.Repositories;
-using MediatR;
 
 namespace Application.Event;
 

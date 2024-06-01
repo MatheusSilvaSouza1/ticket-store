@@ -1,6 +1,5 @@
 using Core.Messages;
 using Domain.Event.DTOs;
-using ErrorOr;
 
 namespace Application.Event.Commands;
 

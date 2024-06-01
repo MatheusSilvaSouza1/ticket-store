@@ -1,6 +1,3 @@
-using Domain.Organizer;
-using Domain.Organizer.DTOs;
-
 namespace Domain.Tests.Organizer;
 
 public class OrganizersTests

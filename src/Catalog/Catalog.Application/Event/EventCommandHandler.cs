@@ -2,8 +2,6 @@ using Application.Event.Commands;
 using Core.Messages;
 using Domain.Event;
 using Domain.Event.Repositories;
-using ErrorOr;
-using MediatR;
 
 namespace Application.Event;
 
