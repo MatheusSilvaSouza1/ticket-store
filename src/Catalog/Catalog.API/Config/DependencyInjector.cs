@@ -11,6 +11,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MessageBus;
 using Catalog.Application.Organizer;
+using Catalog.Domain.Organizer.Repositories;
 
 namespace API.Config;
 
@@ -26,6 +27,7 @@ public static class DependencyInjector
         services.AddScoped<IRequestHandler<GetEventsQuery, List<EventsResponseDTO>>, EventQueryHandler>();
 
         services.AddScoped<IEventRepository, EventRepository>();
+        services.AddScoped<IOrganizerRepository, OrganizerRepository>();
     }
 
     public static void RegisterDatabase(this IServiceCollection services, IConfiguration configuration)

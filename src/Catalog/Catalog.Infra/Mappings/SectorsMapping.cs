@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.Mappings;
 
-public class SectorsMapping : IEntityTypeConfiguration<Sectors>
+public sealed class SectorsMapping : IEntityTypeConfiguration<Sectors>
 {
     public void Configure(EntityTypeBuilder<Sectors> builder)
     {
