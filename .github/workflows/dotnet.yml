@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: echo
-    - run: echo Hello world!
+      run: echo Hello world!
