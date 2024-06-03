@@ -27,7 +27,7 @@ O projeto utiliza Docker e Docker Compose. Certifique-se de ter o Docker instala
 docker compose up
 ```
 As APIs estarão rodando nos seguintes links:
-- [Organising](http://localhost:5286/swagger/index.html)
+- [Promoter](http://localhost:5286/swagger/index.html)
 - [Catalog](http://localhost:7139/swagger/index.html)
 
 ## Entendo o projeto

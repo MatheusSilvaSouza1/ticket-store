@@ -55,13 +55,13 @@
             }
         },
         {
-            "name": "Organising",
+            "name": "Promoter",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Organising/Organising.API/bin/Debug/net8.0/API.dll",
+            "program": "${workspaceFolder}/src/Promoter/Promoter.API/bin/Debug/net8.0/Promoter.API.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Organising/Organising.API",
+            "cwd": "${workspaceFolder}/src/Promoter/Promoter.API",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
@@ -85,7 +85,7 @@
             "name": "All",
             "configurations": [
                 "Catalog",
-                "Organising"
+                "Promoter"
             ],
             "stopAll": true
         }

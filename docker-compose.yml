@@ -28,11 +28,11 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
     
-  organising_api:
-    image: organising_api
+  promoter_api:
+    image: promoter_api
     build:
       context: .
-      dockerfile: ./Organising.Dockerfile
+      dockerfile: ./Promoter.Dockerfile
     ports:
       - 5286:5286
     depends_on:
