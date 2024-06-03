@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalog.Domain\Domain.csproj" />
+    <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

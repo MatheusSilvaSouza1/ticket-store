@@ -13,7 +13,7 @@ namespace Promoter.Infra.Migrations
 {
     [DbContext(typeof(Context))]
     [Migration("20240603002700_initial")]
-    partial class initial
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

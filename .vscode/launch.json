@@ -34,7 +34,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Catalog/Catalog.API/bin/Debug/net8.0/API.dll",
+            "program": "${workspaceFolder}/src/Catalog/Catalog.API/bin/Debug/net8.0/Catalog.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Catalog/Catalog.API",
             "stopAtEntry": false,

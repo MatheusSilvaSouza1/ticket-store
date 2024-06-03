@@ -3,10 +3,10 @@ using Catalog.Domain.Organizer.Repositories;
 using Contracts;
 using MassTransit;
 
-namespace Catalog.Application.Organizer;
+namespace Catalog.Application.Promoter;
 
 public class OrganizerConsumer
-    : IConsumer<OrganizerRegisteredIntegrationEvent>
+    : IConsumer<PromoterRegisteredIntegrationEvent>
 {
     private readonly IOrganizerRepository _organizerRepository;
 
@@ -15,11 +15,11 @@ public class OrganizerConsumer
         _organizerRepository = organizerRepository;
     }
 
-    public async Task Consume(ConsumeContext<OrganizerRegisteredIntegrationEvent> context)
+    public async Task Consume(ConsumeContext<PromoterRegisteredIntegrationEvent> context)
     {
         if (context.Message is not null)
         {
-            var organizer = Organizers.Create(context.Message.OrganizerId, context.Message.OrganizerName);
+            var organizer = Organizers.Create(context.Message.PromoterId, context.Message.PromoterName);
 
             _organizerRepository.Create(organizer);
 

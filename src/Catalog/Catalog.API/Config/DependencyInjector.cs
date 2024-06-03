@@ -10,7 +10,7 @@ using Infra.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MessageBus;
-using Catalog.Application.Organizer;
+using Catalog.Application.Promoter;
 using Catalog.Domain.Organizer.Repositories;
 
 namespace API.Config;

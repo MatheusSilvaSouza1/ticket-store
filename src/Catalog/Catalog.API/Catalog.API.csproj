@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalog.Application\Application.csproj" />
-    <ProjectReference Include="..\Catalog.Infra\Infra.csproj" />
+    <ProjectReference Include="..\Catalog.Application\Catalog.Application.csproj" />
+    <ProjectReference Include="..\Catalog.Infra\Catalog.Infra.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\MessageBus\MessageBus.csproj" />
   </ItemGroup>
 

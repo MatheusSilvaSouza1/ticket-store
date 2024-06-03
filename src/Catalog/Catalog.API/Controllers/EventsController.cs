@@ -18,14 +18,14 @@ public class EventsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("/{organizerId}/[controller]")]
+    [HttpPost("/{promoterId}/[controller]")]
     [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Post(Guid organizerId, CreateEventDTO eventDTO, CancellationToken cancellationToken)
+    public async Task<IActionResult> Post(Guid promoterId, CreateEventDTO eventDTO, CancellationToken cancellationToken)
     {
         var result = await _mediator.SendCommand<CreateEventCommand, ErrorOr<Guid>>(
-            new CreateEventCommand(organizerId, eventDTO), cancellationToken);
+            new CreateEventCommand(promoterId, eventDTO), cancellationToken);
 
         if (result.IsError)
         {
@@ -35,17 +35,17 @@ public class EventsController : ControllerBase
         return Created(string.Empty, new { Id = result.Value });
     }
 
-    [HttpPost("/{organizerId}/[controller]/{eventId}/publish")]
+    [HttpPost("/{promoterId}/[controller]/{eventId}/publish")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> PostPublish(
-        Guid organizerId,
+        Guid promoterId,
         Guid eventId, [FromBody] PublishEventDTO publishEvent,
         CancellationToken cancellationToken)
     {
         var result = await _mediator.SendCommand<PublishEventCommand, ErrorOr<Guid>>(
-            new PublishEventCommand(organizerId, eventId, publishEvent.PublishAt), cancellationToken);
+            new PublishEventCommand(promoterId, eventId, publishEvent.PublishAt), cancellationToken);
 
         if (result.IsError)
         {

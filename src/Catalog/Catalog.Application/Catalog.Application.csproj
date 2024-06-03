@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Catalog.Domain\Domain.csproj" />
+    <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\MessageBus\MessageBus.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\Contracts\Contracts.csproj" />
   </ItemGroup>
