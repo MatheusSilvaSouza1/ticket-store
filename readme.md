@@ -7,10 +7,10 @@ Onde posso demonstrar todo conhecimento adquirido ao longo da minha carreira
 - O sistema deve garantir que um ingresso pertença a unico cliente
 
 ## Arquitetura
-- Microsserviços
-![alt text](docs/arquitetura.png)
+- [Microsserviços](https://excalidraw.com/#json=UuirB_ySgvQaVZ2hRk2O-,nwQy0UnrGsfJ3nk2pp8DvQ)
+![arquitetura](docs/arquitetura.png)
 - Arquitetura orientada a eventos
-![alt text](docs/event-storm.png)
+![event-storm](docs/event-storm.png)
 
 ## Padrões de projeto
 - Domain-Driven Design (DDD)
