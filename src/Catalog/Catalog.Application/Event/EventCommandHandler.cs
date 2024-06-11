@@ -1,4 +1,5 @@
 using Application.Event.Commands;
+using Catalog.Domain.Organizer.Repositories;
 using Core.Messages;
 using Domain.Event;
 using Domain.Event.Repositories;
@@ -10,20 +11,22 @@ public class EventCommandHandler : CommandHandler,
     IRequestHandler<PublishEventCommand, ErrorOr<Guid>>
 {
     private readonly IEventRepository _eventRepository;
+    private readonly IOrganizerRepository _organizerRepository;
 
     public EventCommandHandler(
-        IEventRepository eventRepository)
+        IEventRepository eventRepository,
+        IOrganizerRepository organizerRepository)
     {
         _eventRepository = eventRepository;
+        _organizerRepository = organizerRepository;
     }
 
     public async Task<ErrorOr<Guid>> Handle(
         CreateEventCommand request,
         CancellationToken cancellationToken)
     {
-        // var organizerExists = await _organizerRepository
-        //     .ExistsAsync(e => e.Id == request.OrganizerId);
-        var organizerExists = true;
+        var organizerExists = await _organizerRepository
+            .ExistsAsync(e => e.Id == request.OrganizerId);
 
         var events = Events.Create(request.OrganizerId, request.EventDTO, organizerExists);
 
