@@ -36,7 +36,7 @@ jobs:
       uses: docker/build-push-action@v5.4.0
       with:
         context: .
-        tags: 'latest'
+        tags: 'escorpion559/ticket-store:latest'
         push: true
             
           
