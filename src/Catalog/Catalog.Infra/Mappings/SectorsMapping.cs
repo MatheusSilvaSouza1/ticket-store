@@ -1,3 +1,4 @@
+using Catalog.Domain.Event.ValueObjects;
 using Domain.Event;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -14,6 +15,9 @@ public sealed class SectorsMapping : IEntityTypeConfiguration<Sectors>
 
         builder.Property(e => e.PlaceName)
             .HasMaxLength(1000);
+
+        builder.Property(e => e.Price)
+            .HasConversion(e => e.Value, e => Price.Create(e).Value);
 
         builder.Property(e => e.NumberOfSeats);
     }

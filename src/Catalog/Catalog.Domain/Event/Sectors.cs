@@ -1,3 +1,4 @@
+using Catalog.Domain.Event.ValueObjects;
 using Core.Domain;
 using Domain.Event.DTOs;
 using ErrorOr;
@@ -8,6 +9,7 @@ public sealed class Sectors : Entity
 {
     public string PlaceName { get; private set; }
     public int NumberOfSeats { get; private set; }
+    public Price Price { get; private set; }
 
     public Guid DateId { get; private set; }
     public Dates Dates { get; private set; }
@@ -16,11 +18,12 @@ public sealed class Sectors : Entity
     {
     }
 
-    private Sectors(string placeName, int numberOfSeats)
+    private Sectors(string placeName, int numberOfSeats, Price price)
     {
         Id = Guid.NewGuid();
         PlaceName = placeName;
         NumberOfSeats = numberOfSeats;
+        Price = price;
     }
 
     public static ErrorOr<List<Sectors>> Create(List<SectorsDTO> sectorsDTOs)
@@ -64,16 +67,19 @@ public sealed class Sectors : Entity
             errors.Add(EventsErrors.EventSectorPlaceNameIsRequired);
         }
 
+        var price = Price.Create(sectorsDTO.Price);
+        errors.AddRange(price.ErrorsOrEmptyList);
+
         if (errors.Count > 0)
         {
             return errors;
         }
 
-        return new Sectors(sectorsDTO.PlaceName, sectorsDTO.NumberOfSeats);
+        return new Sectors(sectorsDTO.PlaceName, sectorsDTO.NumberOfSeats, price.Value);
     }
 
     public SectorsDTO ToSectorsDTO()
     {
-        return new SectorsDTO(PlaceName, NumberOfSeats);
+        return new SectorsDTO(PlaceName, NumberOfSeats, Price.Value);
     }
 }

@@ -79,7 +79,7 @@ public class EventsTests
             [new DatesDTO(
                 DateTime.Now,
                 DateTime.Now.AddHours(5),
-                [new SectorsDTO("Sector 1", 0)])],
+                [new SectorsDTO("Sector 1", 0, 1)])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -112,7 +112,7 @@ public class EventsTests
             [new DatesDTO(
                 DateTime.Now,
                 DateTime.Now.AddHours(5),
-                [new SectorsDTO("", 10)])],
+                [new SectorsDTO("", 10, 1)])],
             new AddressDTO(
                 1,
                 "Test Street",
@@ -146,7 +146,7 @@ public class EventsTests
             [new DatesDTO(
                 DateTime.Now.AddDays(1),
                 DateTime.Now.AddDays(2),
-                [new SectorsDTO("Sector 1", 10)])],
+                [new SectorsDTO("Sector 1", 10, 1)])],
             new AddressDTO(
                 1,
                 "Test Street",

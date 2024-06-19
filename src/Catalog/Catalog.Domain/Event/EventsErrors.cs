@@ -28,4 +28,7 @@ public static class EventsErrors
     public static readonly Error EventPublishDateMustBeOneDayBeforeTheStart = Error.Validation(
         description: "The publication of the event must be one day before the start of the event");
 
+    public static readonly Error EventPriceGreaterThanZero = Error.Validation(
+        description: "Price must be greater than zero");
+
 }
