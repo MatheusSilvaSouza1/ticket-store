@@ -1,5 +1,7 @@
 using API.Config;
+using Infra;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,5 +28,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using var scope = app.Services?.GetService<IServiceScopeFactory>()?.CreateScope();
+var context = scope?.ServiceProvider.GetRequiredService<Context>();
+context?.Database.Migrate();
 
 app.Run();

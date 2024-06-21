@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/{promoterId}/[controller]")]
 public class EventsController : ControllerBase
 {
     private readonly IMediatorHandler _mediator;
@@ -18,7 +18,7 @@ public class EventsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("/{promoterId}/[controller]")]
+    [HttpPost]
     [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -35,7 +35,7 @@ public class EventsController : ControllerBase
         return Created(string.Empty, new { Id = result.Value });
     }
 
-    [HttpPost("/{promoterId}/[controller]/{eventId}/publish")]
+    [HttpPost("{eventId}/publish")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(List<Error>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -55,7 +55,7 @@ public class EventsController : ControllerBase
         return Ok();
     }
 
-    [HttpGet]
+    [HttpGet("/[controller]")]
     [ProducesResponseType(typeof(List<EventsResponseDTO>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
