@@ -1,4 +1,5 @@
 # Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
 version: '3.4'
 
 services:
@@ -26,28 +27,6 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-
-  promoter_api:
-    image: promoter_api
-    build:
-      context: .
-      dockerfile: ./Promoter.Dockerfile
-    ports:
-      - 5286:5286
-    depends_on:
-      - rabbitmq
-      - db
-
-  catalog_api:
-    image: catalog_api
-    build:
-      context: .
-      dockerfile: ./Catalog.Dockerfile
-    ports:
-      - 7139:7139
-    depends_on:
-      - rabbitmq
-      - db
 
 volumes:
   db-data:
