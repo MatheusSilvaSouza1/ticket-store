@@ -46,6 +46,7 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "ConnectionStrings:DefaultConnection": "Host=localhost; Database=ticket-store; Username=ticket-store; Password=postgres",
+                "ConnectionStrings:Redis": "localhost",
                 "MessageHost:Host": "amqp://localhost:5672",
                 "MessageHost:User": "guest",
                 "MessageHost:Pass": "guest"

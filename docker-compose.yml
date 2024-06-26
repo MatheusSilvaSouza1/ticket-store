@@ -31,7 +31,7 @@ services:
     image: promoter_api
     build:
       context: .
-      dockerfile: ./Promoter.Dockerfile
+      dockerfile: ./Dockerfile.Promoter
     ports:
       - 5286:5286
     depends_on:
@@ -42,7 +42,7 @@ services:
     image: catalog_api
     build:
       context: .
-      dockerfile: ./Catalog.Dockerfile
+      dockerfile: ./Dockerfile.Catalog
     ports:
       - 7139:7139
     depends_on:
