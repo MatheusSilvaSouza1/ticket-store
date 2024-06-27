@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using MessageBus;
 using Catalog.Application.Promoter;
 using Catalog.Domain.Organizer.Repositories;
+using Domain.Event.DomainEvents;
+using Catalog.Application;
 
 namespace API.Config;
 
@@ -25,6 +27,8 @@ public static class DependencyInjector
         services.AddScoped<IRequestHandler<PublishEventCommand, ErrorOr<Guid>>, EventCommandHandler>();
 
         services.AddScoped<IRequestHandler<GetEventsQuery, List<EventsResponseDTO>>, EventQueryHandler>();
+
+        services.AddScoped<INotificationHandler<EventCreatedDomainEvent>, EventDomainEventHandler>();
 
         services.AddScoped<IEventRepository, EventRepository>();
         services.AddScoped<IOrganizerRepository, OrganizerRepository>();
