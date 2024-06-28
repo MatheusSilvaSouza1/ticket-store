@@ -2,6 +2,7 @@ using API.Config;
 using Infra;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Monitoring;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
+builder.Services.AddMonitoring("Catalog.API");
 
 var app = builder.Build();
 
