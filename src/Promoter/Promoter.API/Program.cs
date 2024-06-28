@@ -2,6 +2,7 @@ using API.Config;
 using Infra;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Monitoring;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+builder.Services.AddMonitoring("Promoter.API");
 
 var app = builder.Build();
 
