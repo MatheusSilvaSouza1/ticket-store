@@ -1,3 +1,8 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using OpenTelemetry.Resources;
@@ -9,6 +14,7 @@ public static class DependencyInjectionExtensions
 {
     public static IServiceCollection AddMonitoring(
         this IServiceCollection services,
+        IConfiguration configuration,
         string serviceName)
     {
         services.AddOpenTelemetry()
@@ -27,6 +33,20 @@ public static class DependencyInjectionExtensions
                 trancing.AddOtlpExporter();
             });
 
+        services.AddHealthChecks()
+            .AddNpgSql(configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentNullException())
+            .AddRedis(configuration.GetConnectionString("Redis") ?? throw new ArgumentNullException());
+
         return services;
+    }
+
+    public static IEndpointRouteBuilder AddHealthCheckUi(this IEndpointRouteBuilder app)
+    {
+        app.MapHealthChecks("health", new HealthCheckOptions
+        {
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+
+        return app;
     }
 }

@@ -17,13 +17,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-builder.Services.AddMonitoring("Promoter.API");
+builder.Services.AddMonitoring(builder.Configuration, "Promoter.API");
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.AddHealthCheckUi();
 
 app.UseHttpsRedirection();
 
