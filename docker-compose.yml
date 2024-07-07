@@ -49,7 +49,7 @@ services:
       - 9411:9411
 
   promoter_api:
-    image: promoter_api
+    image: ${DOCKER_REGISTRY-}promoter_api
     build:
       context: .
       dockerfile: ./Dockerfile.Promoter
@@ -63,7 +63,7 @@ services:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
 
   catalog_api:
-    image: catalog_api
+    image: ${DOCKER_REGISTRY-}catalog_api
     build:
       context: .
       dockerfile: ./Dockerfile.Catalog

@@ -14,6 +14,7 @@ using Catalog.Application.Promoter;
 using Catalog.Domain.Organizer.Repositories;
 using Domain.Event.DomainEvents;
 using Catalog.Application;
+using Core.Interceptors;
 
 namespace API.Config;
 
@@ -36,9 +37,15 @@ public static class DependencyInjector
 
     public static void RegisterDatabase(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<Context>(options =>
+        services.AddSingleton<ConvertDomainEventsToOutboxMessageInterceptor>();
+
+        services.AddDbContext<Context>((sp, options) =>
             {
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+                var interceptor = sp.GetRequiredService<ConvertDomainEventsToOutboxMessageInterceptor>();
+
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
+                    .AddInterceptors(interceptor);
+
                 options.EnableSensitiveDataLogging();
             });
     }

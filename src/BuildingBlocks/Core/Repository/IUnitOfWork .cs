@@ -2,5 +2,5 @@ namespace Core.Repository;
 
 public interface IUnitOfWork : IDisposable
 {
-    Task<bool> CommitAsync(CancellationToken cancellationToken = default);
+    Task<int> CommitAsync(CancellationToken cancellationToken = default);
 }

@@ -4,7 +4,7 @@ namespace Core.Messages;
 
 public abstract class CommandHandler
 {
-    protected static async Task<bool> PersistData(IUnitOfWork uow)
+    protected static async Task<int> PersistData(IUnitOfWork uow)
     {
         return await uow.CommitAsync();
     }

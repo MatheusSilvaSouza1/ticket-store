@@ -1,4 +1,5 @@
 using Core.Mediator;
+using Core.Messages;
 using Core.Repository;
 using Domain.Event;
 using Microsoft.EntityFrameworkCore;
@@ -22,15 +23,8 @@ public class Context
     }
 
     public DbSet<Events> Events { get; set; }
+    public DbSet<OutboxMessage> OutboxMessages { get; set; }
 
-    public async Task<bool> CommitAsync(CancellationToken cancellationToken = default)
-    {
-        var success = await SaveChangesAsync(cancellationToken) > 0;
-        if (success)
-        {
-            await _mediatorHandler.PublishEvents(this);
-        }
-
-        return success;
-    }
+    public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
+        => await SaveChangesAsync(cancellationToken);
 }
