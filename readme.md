@@ -17,6 +17,9 @@ Onde posso demonstrar todo conhecimento adquirido ao longo da minha carreira
 - CQRS
 - Vertical slice
 
+## Monitoramento
+Para monitoramento é utilizado o [OpenTelemetry](https://opentelemetry.io/) e [Jaeger](https://www.jaegertracing.io/).
+
 ## Events storm
 Para a concepção do projeto, foi realizado o event storm para descobrir os eventos para
 [ver mais.](https://miro.com/welcomeonboard/ZDlOVHlYTzRrMFN1aVppMkFzN0l0bEVTRk1rZ0xhaG1FcENsNDhjU29KNWpZdHhLNzVRMkpUZmVxU2FoeDJkYXwzNDU4NzY0NTg0NzkwMTQ1MTQzfDI=?share_link_id=131185290624)
