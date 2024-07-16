@@ -39,7 +39,7 @@ namespace Promoter.Infra.Migrations
                     b.Property<DateTime>("OcurredOnUtc")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("ProcessOnUtc")
+                    b.Property<DateTime?>("ProcessedOnUtc")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Type")

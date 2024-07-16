@@ -1,9 +1,8 @@
 using Core.Domain;
-using Core.Messages;
 
 namespace Domain.Event.DomainEvents;
 
-public class EventCreatedDomainEvent : Message, IDomainEvent
+public class EventCreatedDomainEvent : IDomainEvent
 {
     public Guid EventId { get; init; }
 

@@ -3,6 +3,7 @@ using Infra;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Monitoring;
+using Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddMonitoring("Promoter.API");
+builder.Services.AddOutboxSendMessages<Context>();
 
 var app = builder.Build();
 

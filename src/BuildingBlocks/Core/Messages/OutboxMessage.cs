@@ -6,6 +6,6 @@ public sealed class OutboxMessage
     public string Type { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
     public DateTime OcurredOnUtc { get; set; }
-    public DateTime ProcessOnUtc { get; set; }
+    public DateTime? ProcessedOnUtc { get; set; }
     public string? Error { get; set; }
 }

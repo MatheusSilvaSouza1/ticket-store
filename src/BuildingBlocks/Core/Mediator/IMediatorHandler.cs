@@ -1,11 +1,12 @@
+using Core.Domain;
 using Core.Messages;
 
 namespace Core.Mediator;
 
 public interface IMediatorHandler
 {
-    Task PublishMessage<T>(T message)
-        where T : Message;
+    Task PublishMessage<T>(T message, CancellationToken cancellationToken = default)
+        where T : IDomainEvent;
 
     Task<TResult> SendCommand<T, TResult>(T command, CancellationToken cancellationToken = default)
         where T : ICommand<TResult>;

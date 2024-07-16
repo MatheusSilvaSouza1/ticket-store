@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Infra.Migrations
+namespace Promoter.Infra.Migrations
 {
     /// <inheritdoc />
     public partial class CreateOutboxTable : Migration
@@ -13,14 +13,14 @@ namespace Infra.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "OutboxMessages",
-                schema: "catalog-api",
+                schema: "promoter-api",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
                     Content = table.Column<string>(type: "text", nullable: false),
                     OcurredOnUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    ProcessOnUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ProcessedOnUtc = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Error = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -34,7 +34,7 @@ namespace Infra.Migrations
         {
             migrationBuilder.DropTable(
                 name: "OutboxMessages",
-                schema: "catalog-api");
+                schema: "promoter-api");
         }
     }
 }

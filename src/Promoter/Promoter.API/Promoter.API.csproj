@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\Monitoring\Monitoring.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\Jobs\Jobs.csproj" />
     <ProjectReference Include="..\Promoter.Application\Promoter.Application.csproj" />
     <ProjectReference Include="..\Promoter.Infra\Promoter.Infra.csproj" />
   </ItemGroup>

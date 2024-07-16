@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Promoter.Infra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240630003604_CreateOutboxTable")]
+    [Migration("20240716015517_CreateOutboxTable")]
     partial class CreateOutboxTable
     {
         /// <inheritdoc />
@@ -42,7 +42,7 @@ namespace Promoter.Infra.Migrations
                     b.Property<DateTime>("OcurredOnUtc")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("ProcessOnUtc")
+                    b.Property<DateTime?>("ProcessedOnUtc")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Type")

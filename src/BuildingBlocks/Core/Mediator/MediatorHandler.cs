@@ -1,3 +1,4 @@
+using Core.Domain;
 using Core.Messages;
 using MediatR;
 
@@ -7,8 +8,8 @@ public class MediatorHandler(IMediator mediator) : IMediatorHandler
 {
     private readonly IMediator _mediator = mediator;
 
-    public async Task PublishMessage<T>(T message)
-        where T : Message
+    public async Task PublishMessage<T>(T message, CancellationToken cancellationToken = default)
+        where T : IDomainEvent
     {
         await _mediator.Publish(message);
     }

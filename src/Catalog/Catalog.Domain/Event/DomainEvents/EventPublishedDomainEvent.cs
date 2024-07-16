@@ -1,9 +1,8 @@
 using Core.Domain;
-using Core.Messages;
 
 namespace Domain.Event.DomainEvents;
 
-public class EventPublishedDomainEvent : Message, IDomainEvent
+public class EventPublishedDomainEvent : IDomainEvent
 {
     public readonly Guid EventId;
     public readonly DateTime PublishAt;
