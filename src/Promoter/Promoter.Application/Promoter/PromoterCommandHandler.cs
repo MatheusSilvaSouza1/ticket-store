@@ -2,12 +2,12 @@ using Application.Promoter.Commands;
 using Core.Messages;
 using Domain.Promoter;
 using Domain.Promoter.Repositories;
-using ErrorOr;
+using FluentResults;
 using MediatR;
 
 namespace Application.Promoter
 {
-    public class PromoterCommandHandler : CommandHandler, IRequestHandler<RegisterPromoterCommand, ErrorOr<Guid>>
+    public class PromoterCommandHandler : CommandHandler, IRequestHandler<RegisterPromoterCommand, Result<Guid>>
     {
         private readonly IPromoterRepository _promoterRepository;
 
@@ -16,14 +16,14 @@ namespace Application.Promoter
             _promoterRepository = promoterRepository;
         }
 
-        public async Task<ErrorOr<Guid>> Handle(RegisterPromoterCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Guid>> Handle(RegisterPromoterCommand request, CancellationToken cancellationToken)
         {
             var exists = await _promoterRepository.ExistsAsync(e => e.Cnpj == request.PromoterDTO.Cnpj);
 
             var promoter = Promoters.Register(promoterDTO: request.PromoterDTO, promoterAlreadyExists: exists);
-            if (promoter.IsError)
+            if (promoter.IsFailed)
             {
-                return promoter.Errors;
+                return Result.Fail(promoter.Errors);
             }
 
             _promoterRepository.Create(promoter.Value);

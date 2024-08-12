@@ -1,9 +1,3 @@
-using Core.Domain;
-using Domain.Promoter.DomainEvents;
-using Domain.Promoter.DTOs;
-using Domain.Promoter.ValueObjects;
-using ErrorOr;
-
 namespace Domain.Promoter;
 
 public sealed class Promoters : AggregateRoot
@@ -16,12 +10,12 @@ public sealed class Promoters : AggregateRoot
     {
     }
 
-    public static ErrorOr<Promoters> Register(RegisterPromoterDTO promoterDTO, bool promoterAlreadyExists)
+    public static Result<Promoters> Register(RegisterPromoterDTO promoterDTO, bool promoterAlreadyExists)
     {
-        List<Error> errors = [];
-
+        List<IError> errors = [];
+        
         var cnpj = Cnpj.Create(promoterDTO.Cnpj);
-        errors.AddRange(cnpj.ErrorsOrEmptyList);
+        errors.AddRange(cnpj.Errors);
 
         if (promoterAlreadyExists)
         {
@@ -35,7 +29,7 @@ public sealed class Promoters : AggregateRoot
 
         if (errors.Count > 0)
         {
-            return errors;
+            return Result.Fail(errors);
         }
 
         var promoter = new Promoters()

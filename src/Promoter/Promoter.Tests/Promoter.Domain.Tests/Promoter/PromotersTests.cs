@@ -15,7 +15,7 @@ public class PromotersTests
         var result = Promoters.Register(promoterDTO, false);
 
         // Assert
-        Assert.True(result.IsError);
+        Assert.True(result.IsFailed);
         Assert.Single(result.Errors);
         Assert.Equal(PromoterErrors.InvalidCnpj, result.Errors.Single());
     }
@@ -35,7 +35,7 @@ public class PromotersTests
         var result = Promoters.Register(promoterDTO, false);
 
         // Assert
-        Assert.True(result.IsError);
+        Assert.True(result.IsFailed);
         Assert.Single(result.Errors);
         Assert.Equal(PromoterErrors.InvalidCorporateReason, result.Errors.Single());
     }
@@ -55,7 +55,7 @@ public class PromotersTests
         var result = Promoters.Register(promoterDTO, true);
 
         // Assert
-        Assert.True(result.IsError);
+        Assert.True(result.IsFailed);
         Assert.Single(result.Errors);
         Assert.Equal(PromoterErrors.PromoterAlreadyExists, result.Errors.Single());
     }
@@ -75,7 +75,7 @@ public class PromotersTests
         var result = Promoters.Register(promoterDTO, false);
 
         // Assert
-        Assert.False(result.IsError);
+        Assert.False(result.IsFailed);
         var promoter = result.Value;
         Assert.Equal(promoterDTO.CorporateReason, promoter.CorporateReason);
         Assert.Equal(promoterDTO.Fantasy, promoter.Fantasy);

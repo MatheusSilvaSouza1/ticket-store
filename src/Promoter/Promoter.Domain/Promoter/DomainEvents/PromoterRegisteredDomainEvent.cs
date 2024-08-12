@@ -1,6 +1,3 @@
-using Core.Domain;
-using Core.Messages;
-
 namespace Domain.Promoter.DomainEvents;
 
 public sealed class PromoterRegisteredDomainEvent : IDomainEvent

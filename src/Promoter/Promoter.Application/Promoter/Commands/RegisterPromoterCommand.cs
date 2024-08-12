@@ -1,10 +1,10 @@
 using Core.Messages;
 using Domain.Promoter.DTOs;
-using ErrorOr;
+using FluentResults;
 
 namespace Application.Promoter.Commands;
 
-public class RegisterPromoterCommand : ICommand<ErrorOr<Guid>>
+public class RegisterPromoterCommand : ICommand<Result<Guid>>
 {
     public RegisterPromoterDTO PromoterDTO { get; init; }
 

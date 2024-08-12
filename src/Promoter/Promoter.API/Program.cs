@@ -19,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddMonitoring(builder.Configuration, "Promoter.API");
-builder.Services.AddOutboxSendMessages<Context>();
+// builder.Services.AddOutboxSendMessages<Context>();
 
 var app = builder.Build();
 

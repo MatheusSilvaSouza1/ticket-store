@@ -1,7 +1,4 @@
-using Application.Promoter.Commands;
-using Core.Mediator;
 using Domain.Promoter.DTOs;
-using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -23,10 +20,10 @@ public class PromotersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Post(RegisterPromoterDTO promoter, CancellationToken cancellationToken)
     {
-        var result = await _mediator.SendCommand<RegisterPromoterCommand, ErrorOr<Guid>>(
+        var result = await _mediator.SendCommand<RegisterPromoterCommand, Result<Guid>>(
             new RegisterPromoterCommand(promoter), cancellationToken);
 
-        if (result.IsError)
+        if (result.IsFailed)
         {
             return BadRequest(result.Errors);
         }

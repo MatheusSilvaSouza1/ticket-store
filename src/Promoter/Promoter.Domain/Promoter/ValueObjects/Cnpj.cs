@@ -1,5 +1,3 @@
-using ErrorOr;
-
 namespace Domain.Promoter.ValueObjects;
 
 public sealed record Cnpj
@@ -11,7 +9,7 @@ public sealed record Cnpj
         Value = cnpj;
     }
 
-    public static ErrorOr<Cnpj> Create(string cnpj)
+    public static Result<Cnpj> Create(string cnpj)
     {
         var clean = cnpj
             .Replace("-", string.Empty)
@@ -20,10 +18,10 @@ public sealed record Cnpj
 
         if (clean.Length != 14)
         {
-            return PromoterErrors.InvalidCnpj;
+            return Result.Fail(PromoterErrors.InvalidCnpj);
         }
 
-        return new Cnpj(clean);
+        return Result.Ok(new Cnpj(clean));
     }
 
     public static implicit operator Cnpj(string cnpj)

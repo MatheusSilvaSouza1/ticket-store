@@ -1,16 +1,3 @@
-using Application.Promoter;
-using Application.Promoter.Commands;
-using Core.Mediator;
-using Domain.Promoter.Repositories;
-using ErrorOr;
-using Infra;
-using Infra.Repositories;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MessageBus;
-using Domain.Promoter.DomainEvents;
-using Core.Interceptors;
-
 namespace API.Config;
 
 public static class DependencyInjector
@@ -19,7 +6,7 @@ public static class DependencyInjector
     {
 
         services.AddScoped<IMediatorHandler, MediatorHandler>();
-        services.AddScoped<IRequestHandler<RegisterPromoterCommand, ErrorOr<Guid>>, PromoterCommandHandler>();
+        services.AddScoped<IRequestHandler<RegisterPromoterCommand, Result<Guid>>, PromoterCommandHandler>();
 
         services.AddScoped<INotificationHandler<PromoterRegisteredDomainEvent>, PromoterDomainEventHandler>();
 
