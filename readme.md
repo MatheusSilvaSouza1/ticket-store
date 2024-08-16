@@ -44,6 +44,8 @@ Os serviços estão organizados em quatro camadas:
 - **Domain**: Centraliza toda a lógica de negócio.
 - **Infra**: Responsável pela implementação e comunicação com serviços externos.
 
+---
+
 ##### Gerar coverage
 ```
 dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=lcov -p:CoverletOutput=./lcov.info
